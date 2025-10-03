@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4644158872323519160}
   - component: {fileID: 377817514205665125}
   - component: {fileID: 6800591873800790145}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Basic Colision Block
   m_TagString: Ground
   m_Icon: {fileID: 0}

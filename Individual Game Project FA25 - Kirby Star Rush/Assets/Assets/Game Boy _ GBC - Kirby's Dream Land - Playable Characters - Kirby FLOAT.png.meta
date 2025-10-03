@@ -1,0 +1,378 @@
+fileFormatVersion: 2
+guid: c65fd202d3106a54b8716643f18fefda
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 16
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Game Boy _ GBC - Kirby's Dream Land - Playable Characters - Kirby_0
+      rect:
+        serializedVersion: 2
+        x: 132
+        y: 70
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d2b38390bb067174c817b73f092a3034
+      internalID: 1782480670
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy _ GBC - Kirby's Dream Land - Playable Characters - Kirby_13
+      rect:
+        serializedVersion: 2
+        x: 19
+        y: 70
+        width: 16
+        height: 24
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 537f4051390dd6d4b8d9779839bb831b
+      internalID: 2106576110
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy _ GBC - Kirby's Dream Land - Playable Characters - Kirby_14
+      rect:
+        serializedVersion: 2
+        x: 36
+        y: 70
+        width: 23
+        height: 24
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 80b8540c92ddeb34aa5dfb68c7937bab
+      internalID: -1557584953
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy _ GBC - Kirby's Dream Land - Playable Characters - Kirby_15
+      rect:
+        serializedVersion: 2
+        x: 84
+        y: 70
+        width: 23
+        height: 24
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 18b774734b13d43499720de5b3c3687a
+      internalID: -136625289
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy _ GBC - Kirby's Dream Land - Playable Characters - Kirby_16
+      rect:
+        serializedVersion: 2
+        x: 108
+        y: 70
+        width: 23
+        height: 24
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e7ac64d30cd8f654b94b7f014881a30e
+      internalID: -355685259
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy _ GBC - Kirby's Dream Land - Playable Characters - Kirby_26
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 70
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 573da03646eed174ca645a13e16fe79d
+      internalID: 885283975
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy _ GBC - Kirby's Dream Land - Playable Characters - Kirby_27
+      rect:
+        serializedVersion: 2
+        x: 60
+        y: 70
+        width: 23
+        height: 24
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 54cc77fe3c9fea54eafdc6ae5c6d09f7
+      internalID: 1509788193
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      Game Boy _ GBC - Kirby's Dream Land - Playable Characters - Kirby_0: 1782480670
+      Game Boy _ GBC - Kirby's Dream Land - Playable Characters - Kirby_1: -1711513997
+      Game Boy _ GBC - Kirby's Dream Land - Playable Characters - Kirby_10: -1451417467
+      Game Boy _ GBC - Kirby's Dream Land - Playable Characters - Kirby_100: -2123278430
+      Game Boy _ GBC - Kirby's Dream Land - Playable Characters - Kirby_101: -831938888
+      Game Boy _ GBC - Kirby's Dream Land - Playable Characters - Kirby_102: -1739307725
+      Game Boy _ GBC - Kirby's Dream Land - Playable Characters - Kirby_103: 1181451302
+      Game Boy _ GBC - Kirby's Dream Land - Playable Characters - Kirby_11: 189585037
+      Game Boy _ GBC - Kirby's Dream Land - Playable Characters - Kirby_12: -1616542597
+      Game Boy _ GBC - Kirby's Dream Land - Playable Characters - Kirby_13: 2106576110
+      Game Boy _ GBC - Kirby's Dream Land - Playable Characters - Kirby_14: -1557584953
+      Game Boy _ GBC - Kirby's Dream Land - Playable Characters - Kirby_15: -136625289
+      Game Boy _ GBC - Kirby's Dream Land - Playable Characters - Kirby_16: -355685259
+      Game Boy _ GBC - Kirby's Dream Land - Playable Characters - Kirby_17: 1690241384
+      Game Boy _ GBC - Kirby's Dream Land - Playable Characters - Kirby_18: 201255364
+      Game Boy _ GBC - Kirby's Dream Land - Playable Characters - Kirby_19: 815984407
+      Game Boy _ GBC - Kirby's Dream Land - Playable Characters - Kirby_2: -1148300358
+      Game Boy _ GBC - Kirby's Dream Land - Playable Characters - Kirby_20: -60057640
+      Game Boy _ GBC - Kirby's Dream Land - Playable Characters - Kirby_21: 1178432084
+      Game Boy _ GBC - Kirby's Dream Land - Playable Characters - Kirby_22: 672734108
+      Game Boy _ GBC - Kirby's Dream Land - Playable Characters - Kirby_23: -1959830151
+      Game Boy _ GBC - Kirby's Dream Land - Playable Characters - Kirby_24: -169925127
+      Game Boy _ GBC - Kirby's Dream Land - Playable Characters - Kirby_25: -992764291
+      Game Boy _ GBC - Kirby's Dream Land - Playable Characters - Kirby_26: 885283975
+      Game Boy _ GBC - Kirby's Dream Land - Playable Characters - Kirby_27: 1509788193
+      Game Boy _ GBC - Kirby's Dream Land - Playable Characters - Kirby_28: -1732981587
+      Game Boy _ GBC - Kirby's Dream Land - Playable Characters - Kirby_29: -561604144
+      Game Boy _ GBC - Kirby's Dream Land - Playable Characters - Kirby_3: -2138623298
+      Game Boy _ GBC - Kirby's Dream Land - Playable Characters - Kirby_30: -155326089
+      Game Boy _ GBC - Kirby's Dream Land - Playable Characters - Kirby_31: 848979340
+      Game Boy _ GBC - Kirby's Dream Land - Playable Characters - Kirby_32: -334830824
+      Game Boy _ GBC - Kirby's Dream Land - Playable Characters - Kirby_33: 2072599929
+      Game Boy _ GBC - Kirby's Dream Land - Playable Characters - Kirby_34: -870384989
+      Game Boy _ GBC - Kirby's Dream Land - Playable Characters - Kirby_35: 245222188
+      Game Boy _ GBC - Kirby's Dream Land - Playable Characters - Kirby_36: -585696886
+      Game Boy _ GBC - Kirby's Dream Land - Playable Characters - Kirby_37: 551396370
+      Game Boy _ GBC - Kirby's Dream Land - Playable Characters - Kirby_38: 1981225084
+      Game Boy _ GBC - Kirby's Dream Land - Playable Characters - Kirby_39: 1348210713
+      Game Boy _ GBC - Kirby's Dream Land - Playable Characters - Kirby_4: 2011578726
+      Game Boy _ GBC - Kirby's Dream Land - Playable Characters - Kirby_40: -868861674
+      Game Boy _ GBC - Kirby's Dream Land - Playable Characters - Kirby_41: 10668028
+      Game Boy _ GBC - Kirby's Dream Land - Playable Characters - Kirby_42: 1439511315
+      Game Boy _ GBC - Kirby's Dream Land - Playable Characters - Kirby_43: 1227631887
+      Game Boy _ GBC - Kirby's Dream Land - Playable Characters - Kirby_44: 682395718
+      Game Boy _ GBC - Kirby's Dream Land - Playable Characters - Kirby_45: 1181370635
+      Game Boy _ GBC - Kirby's Dream Land - Playable Characters - Kirby_46: -1794574794
+      Game Boy _ GBC - Kirby's Dream Land - Playable Characters - Kirby_47: 285649797
+      Game Boy _ GBC - Kirby's Dream Land - Playable Characters - Kirby_48: 950712615
+      Game Boy _ GBC - Kirby's Dream Land - Playable Characters - Kirby_49: 1479953631
+      Game Boy _ GBC - Kirby's Dream Land - Playable Characters - Kirby_5: -1522074359
+      Game Boy _ GBC - Kirby's Dream Land - Playable Characters - Kirby_50: -255217228
+      Game Boy _ GBC - Kirby's Dream Land - Playable Characters - Kirby_51: 1739552728
+      Game Boy _ GBC - Kirby's Dream Land - Playable Characters - Kirby_52: -702564265
+      Game Boy _ GBC - Kirby's Dream Land - Playable Characters - Kirby_53: 609804714
+      Game Boy _ GBC - Kirby's Dream Land - Playable Characters - Kirby_54: -304995144
+      Game Boy _ GBC - Kirby's Dream Land - Playable Characters - Kirby_55: -1250413029
+      Game Boy _ GBC - Kirby's Dream Land - Playable Characters - Kirby_56: -26543435
+      Game Boy _ GBC - Kirby's Dream Land - Playable Characters - Kirby_57: 1093083261
+      Game Boy _ GBC - Kirby's Dream Land - Playable Characters - Kirby_58: -626735689
+      Game Boy _ GBC - Kirby's Dream Land - Playable Characters - Kirby_59: 1918723021
+      Game Boy _ GBC - Kirby's Dream Land - Playable Characters - Kirby_6: -1334018765
+      Game Boy _ GBC - Kirby's Dream Land - Playable Characters - Kirby_60: 89731307
+      Game Boy _ GBC - Kirby's Dream Land - Playable Characters - Kirby_61: -1103144610
+      Game Boy _ GBC - Kirby's Dream Land - Playable Characters - Kirby_62: -1559172955
+      Game Boy _ GBC - Kirby's Dream Land - Playable Characters - Kirby_63: -958760320
+      Game Boy _ GBC - Kirby's Dream Land - Playable Characters - Kirby_64: 232617806
+      Game Boy _ GBC - Kirby's Dream Land - Playable Characters - Kirby_65: -749314765
+      Game Boy _ GBC - Kirby's Dream Land - Playable Characters - Kirby_66: 817767924
+      Game Boy _ GBC - Kirby's Dream Land - Playable Characters - Kirby_67: -1740862839
+      Game Boy _ GBC - Kirby's Dream Land - Playable Characters - Kirby_68: -24549298
+      Game Boy _ GBC - Kirby's Dream Land - Playable Characters - Kirby_69: -1754981281
+      Game Boy _ GBC - Kirby's Dream Land - Playable Characters - Kirby_7: 2136882645
+      Game Boy _ GBC - Kirby's Dream Land - Playable Characters - Kirby_70: 625365781
+      Game Boy _ GBC - Kirby's Dream Land - Playable Characters - Kirby_71: 1091172848
+      Game Boy _ GBC - Kirby's Dream Land - Playable Characters - Kirby_72: -849565482
+      Game Boy _ GBC - Kirby's Dream Land - Playable Characters - Kirby_73: 113987903
+      Game Boy _ GBC - Kirby's Dream Land - Playable Characters - Kirby_74: -1599660643
+      Game Boy _ GBC - Kirby's Dream Land - Playable Characters - Kirby_75: 727923758
+      Game Boy _ GBC - Kirby's Dream Land - Playable Characters - Kirby_76: -1167766055
+      Game Boy _ GBC - Kirby's Dream Land - Playable Characters - Kirby_77: -1498577343
+      Game Boy _ GBC - Kirby's Dream Land - Playable Characters - Kirby_78: 1147582053
+      Game Boy _ GBC - Kirby's Dream Land - Playable Characters - Kirby_79: -1096479990
+      Game Boy _ GBC - Kirby's Dream Land - Playable Characters - Kirby_8: -2040422990
+      Game Boy _ GBC - Kirby's Dream Land - Playable Characters - Kirby_80: 776693381
+      Game Boy _ GBC - Kirby's Dream Land - Playable Characters - Kirby_81: 950333438
+      Game Boy _ GBC - Kirby's Dream Land - Playable Characters - Kirby_82: -1896107454
+      Game Boy _ GBC - Kirby's Dream Land - Playable Characters - Kirby_83: -820687587
+      Game Boy _ GBC - Kirby's Dream Land - Playable Characters - Kirby_84: 2091157961
+      Game Boy _ GBC - Kirby's Dream Land - Playable Characters - Kirby_85: -341111727
+      Game Boy _ GBC - Kirby's Dream Land - Playable Characters - Kirby_86: 389503610
+      Game Boy _ GBC - Kirby's Dream Land - Playable Characters - Kirby_87: -894390400
+      Game Boy _ GBC - Kirby's Dream Land - Playable Characters - Kirby_88: 1065455479
+      Game Boy _ GBC - Kirby's Dream Land - Playable Characters - Kirby_89: -895224072
+      Game Boy _ GBC - Kirby's Dream Land - Playable Characters - Kirby_9: 399198898
+      Game Boy _ GBC - Kirby's Dream Land - Playable Characters - Kirby_90: 667986592
+      Game Boy _ GBC - Kirby's Dream Land - Playable Characters - Kirby_91: -237921012
+      Game Boy _ GBC - Kirby's Dream Land - Playable Characters - Kirby_92: 1758545390
+      Game Boy _ GBC - Kirby's Dream Land - Playable Characters - Kirby_93: -398251744
+      Game Boy _ GBC - Kirby's Dream Land - Playable Characters - Kirby_94: -1837551248
+      Game Boy _ GBC - Kirby's Dream Land - Playable Characters - Kirby_95: -116803807
+      Game Boy _ GBC - Kirby's Dream Land - Playable Characters - Kirby_96: 170361026
+      Game Boy _ GBC - Kirby's Dream Land - Playable Characters - Kirby_97: -1644978739
+      Game Boy _ GBC - Kirby's Dream Land - Playable Characters - Kirby_98: 611907808
+      Game Boy _ GBC - Kirby's Dream Land - Playable Characters - Kirby_99: 206599840
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -1,0 +1,80 @@
+{
+    "name": "Kirby",
+    "maps": [
+        {
+            "name": "Gameplay",
+            "id": "fcd9a22c-38cf-4546-b128-d613ed845cec",
+            "actions": [
+                {
+                    "name": "Movement",
+                    "type": "Value",
+                    "id": "c0712281-1771-45fa-a4a5-c0ba748957fb",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                },
+                {
+                    "name": "Jump",
+                    "type": "Button",
+                    "id": "76ce7067-bd6c-4d25-9005-78e667fd7130",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Special Action",
+                    "type": "Button",
+                    "id": "6a731e25-ecf0-475a-9050-898e219ded0b",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "f735df7f-4ad4-497e-a079-c5ac2b3a08ef",
+                    "path": "<Gamepad>/leftStick/up",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Kirby",
+                    "action": "Movement",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "bb62fd9e-3840-48e7-8f47-bd2b9c2d68ba",
+                    "path": "<Gamepad>/buttonEast",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Kirby",
+                    "action": "Jump",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "d9500e18-d9cb-4de1-95f4-f8b626204cd0",
+                    "path": "<Gamepad>/buttonWest",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Kirby",
+                    "action": "Special Action",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": [
+        {
+            "name": "Kirby",
+            "bindingGroup": "Kirby",
+            "devices": []
+        }
+    ]
+}

@@ -20,6 +20,8 @@ public class KirbyController : MonoBehaviour
     private bool canJump = false; // true if touching Ground
     private bool hasJumpedOnce = false; // to track if we’re airborne after initial jump
 
+    [SerializeField] private Animator animator;
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -29,8 +31,21 @@ public class KirbyController : MonoBehaviour
     {
         // --- Input (GetKey) ---
         targetMove = 0f;
-        if (Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.A)) targetMove = -1f;
-        else if (Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.D)) targetMove = 1f;
+        if (Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.A))
+        {
+            targetMove = -1f;
+            animator.SetBool("isRunning", true);
+        }
+        else if (Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.D)) 
+        {
+            targetMove = 1f; 
+            animator.SetBool("isRunning", true);
+        }
+        else
+        {
+            animator.SetBool("isRunning", false);
+        }
+
 
         // --- Momentum ---
         if (targetMove != 0f)

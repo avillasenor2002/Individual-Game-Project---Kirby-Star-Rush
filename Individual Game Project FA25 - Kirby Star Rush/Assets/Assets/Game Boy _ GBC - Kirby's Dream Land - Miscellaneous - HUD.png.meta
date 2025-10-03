@@ -1,0 +1,633 @@
+fileFormatVersion: 2
+guid: f81f1d798cf46d24aafaa314d7b2c252
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 8
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Game Boy _ GBC - Kirby's Dream Land - Miscellaneous - HUD_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 8
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c97c4134c17ee1b469c4c2fe0bbc72ef
+      internalID: 1842884574
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy _ GBC - Kirby's Dream Land - Miscellaneous - HUD_1
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 8
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 33ff122c5c4f1234fb2e224c4e1196de
+      internalID: 1708924021
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy _ GBC - Kirby's Dream Land - Miscellaneous - HUD_2
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 8
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: df9bec999a2a21048b6086f28f18dbb7
+      internalID: 420187664
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy _ GBC - Kirby's Dream Land - Miscellaneous - HUD_3
+      rect:
+        serializedVersion: 2
+        x: 24
+        y: 8
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b00de000f53f6534ab8fe42994af38e1
+      internalID: -1913505813
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy _ GBC - Kirby's Dream Land - Miscellaneous - HUD_4
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 8
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d91849db156e9ce439f6fba11cf7aa5c
+      internalID: 1701669022
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy _ GBC - Kirby's Dream Land - Miscellaneous - HUD_5
+      rect:
+        serializedVersion: 2
+        x: 40
+        y: 8
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8a92dfe47fee2094f80032a5b68769a6
+      internalID: -479446233
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy _ GBC - Kirby's Dream Land - Miscellaneous - HUD_6
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 8
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7103e69727fbadd4fbb0b3f1ff89831c
+      internalID: -1017828339
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy _ GBC - Kirby's Dream Land - Miscellaneous - HUD_7
+      rect:
+        serializedVersion: 2
+        x: 56
+        y: 8
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0248766ed97ff7f4f931a9967f71824f
+      internalID: -1345634375
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy _ GBC - Kirby's Dream Land - Miscellaneous - HUD_8
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 8
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2fbb8db928f01e642b7242c4acf7fd3e
+      internalID: 1721156888
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy _ GBC - Kirby's Dream Land - Miscellaneous - HUD_9
+      rect:
+        serializedVersion: 2
+        x: 72
+        y: 8
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d884206ec9b9529468b35453805f6b5d
+      internalID: 2130617027
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy _ GBC - Kirby's Dream Land - Miscellaneous - HUD_10
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 8
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e1f44613ef605754785966d985ac408f
+      internalID: 1622543563
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy _ GBC - Kirby's Dream Land - Miscellaneous - HUD_11
+      rect:
+        serializedVersion: 2
+        x: 88
+        y: 8
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 16e67b05dc917294f8414511d9b02149
+      internalID: -710827010
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy _ GBC - Kirby's Dream Land - Miscellaneous - HUD_12
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 8
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d8579764241cc224eada84f62016ee96
+      internalID: 1371534159
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy _ GBC - Kirby's Dream Land - Miscellaneous - HUD_13
+      rect:
+        serializedVersion: 2
+        x: 104
+        y: 8
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cc226a8793cd65447af4098e0f7526ec
+      internalID: -70413890
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy _ GBC - Kirby's Dream Land - Miscellaneous - HUD_14
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 8
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3c41f3faebd7c8c41a6457e3eaac5cf3
+      internalID: 472089210
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy _ GBC - Kirby's Dream Land - Miscellaneous - HUD_15
+      rect:
+        serializedVersion: 2
+        x: 120
+        y: 8
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9db2932d05d49264e9ef8109b4aa904e
+      internalID: 1207126344
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy _ GBC - Kirby's Dream Land - Miscellaneous - HUD_16
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 8
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2f0344f350f2caa4d82e6094e6176151
+      internalID: 797189336
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy _ GBC - Kirby's Dream Land - Miscellaneous - HUD_17
+      rect:
+        serializedVersion: 2
+        x: 136
+        y: 8
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9f606df4cfbb9fd41bf21d417230239c
+      internalID: 1633166211
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy _ GBC - Kirby's Dream Land - Miscellaneous - HUD_18
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 8
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bb3be3d1b9395ef43ad3e2a5899465ef
+      internalID: -1708003501
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy _ GBC - Kirby's Dream Land - Miscellaneous - HUD_19
+      rect:
+        serializedVersion: 2
+        x: 152
+        y: 8
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 50eb5772c1444a546baf4c667c9eb2c5
+      internalID: -917152380
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy _ GBC - Kirby's Dream Land - Miscellaneous - HUD_20
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 8
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 139b19428d8cd334292204320873656d
+      internalID: -2022344617
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy _ GBC - Kirby's Dream Land - Miscellaneous - HUD_21
+      rect:
+        serializedVersion: 2
+        x: 168
+        y: 8
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: df5b1691f890a854b91fcb19d4251fbf
+      internalID: 627736396
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      Game Boy _ GBC - Kirby's Dream Land - Miscellaneous - HUD_0: 1842884574
+      Game Boy _ GBC - Kirby's Dream Land - Miscellaneous - HUD_1: 1708924021
+      Game Boy _ GBC - Kirby's Dream Land - Miscellaneous - HUD_10: 1622543563
+      Game Boy _ GBC - Kirby's Dream Land - Miscellaneous - HUD_11: -710827010
+      Game Boy _ GBC - Kirby's Dream Land - Miscellaneous - HUD_12: 1371534159
+      Game Boy _ GBC - Kirby's Dream Land - Miscellaneous - HUD_13: -70413890
+      Game Boy _ GBC - Kirby's Dream Land - Miscellaneous - HUD_14: 472089210
+      Game Boy _ GBC - Kirby's Dream Land - Miscellaneous - HUD_15: 1207126344
+      Game Boy _ GBC - Kirby's Dream Land - Miscellaneous - HUD_16: 797189336
+      Game Boy _ GBC - Kirby's Dream Land - Miscellaneous - HUD_17: 1633166211
+      Game Boy _ GBC - Kirby's Dream Land - Miscellaneous - HUD_18: -1708003501
+      Game Boy _ GBC - Kirby's Dream Land - Miscellaneous - HUD_19: -917152380
+      Game Boy _ GBC - Kirby's Dream Land - Miscellaneous - HUD_2: 420187664
+      Game Boy _ GBC - Kirby's Dream Land - Miscellaneous - HUD_20: -2022344617
+      Game Boy _ GBC - Kirby's Dream Land - Miscellaneous - HUD_21: 627736396
+      Game Boy _ GBC - Kirby's Dream Land - Miscellaneous - HUD_22: -194793278
+      Game Boy _ GBC - Kirby's Dream Land - Miscellaneous - HUD_23: -752508480
+      Game Boy _ GBC - Kirby's Dream Land - Miscellaneous - HUD_24: 976822723
+      Game Boy _ GBC - Kirby's Dream Land - Miscellaneous - HUD_25: -403963577
+      Game Boy _ GBC - Kirby's Dream Land - Miscellaneous - HUD_26: 1572139669
+      Game Boy _ GBC - Kirby's Dream Land - Miscellaneous - HUD_27: 1240487385
+      Game Boy _ GBC - Kirby's Dream Land - Miscellaneous - HUD_28: -1642649445
+      Game Boy _ GBC - Kirby's Dream Land - Miscellaneous - HUD_29: 1503067459
+      Game Boy _ GBC - Kirby's Dream Land - Miscellaneous - HUD_3: -1913505813
+      Game Boy _ GBC - Kirby's Dream Land - Miscellaneous - HUD_30: 1805875449
+      Game Boy _ GBC - Kirby's Dream Land - Miscellaneous - HUD_31: -815362956
+      Game Boy _ GBC - Kirby's Dream Land - Miscellaneous - HUD_32: 1820564160
+      Game Boy _ GBC - Kirby's Dream Land - Miscellaneous - HUD_33: -153554764
+      Game Boy _ GBC - Kirby's Dream Land - Miscellaneous - HUD_34: -1720898083
+      Game Boy _ GBC - Kirby's Dream Land - Miscellaneous - HUD_35: -735633663
+      Game Boy _ GBC - Kirby's Dream Land - Miscellaneous - HUD_36: 1618658080
+      Game Boy _ GBC - Kirby's Dream Land - Miscellaneous - HUD_37: -1409685254
+      Game Boy _ GBC - Kirby's Dream Land - Miscellaneous - HUD_38: 1246785354
+      Game Boy _ GBC - Kirby's Dream Land - Miscellaneous - HUD_39: -300727464
+      Game Boy _ GBC - Kirby's Dream Land - Miscellaneous - HUD_4: 1701669022
+      Game Boy _ GBC - Kirby's Dream Land - Miscellaneous - HUD_40: 1562083799
+      Game Boy _ GBC - Kirby's Dream Land - Miscellaneous - HUD_41: -293475257
+      Game Boy _ GBC - Kirby's Dream Land - Miscellaneous - HUD_42: -1737597986
+      Game Boy _ GBC - Kirby's Dream Land - Miscellaneous - HUD_43: 1327971605
+      Game Boy _ GBC - Kirby's Dream Land - Miscellaneous - HUD_5: -479446233
+      Game Boy _ GBC - Kirby's Dream Land - Miscellaneous - HUD_6: -1017828339
+      Game Boy _ GBC - Kirby's Dream Land - Miscellaneous - HUD_7: -1345634375
+      Game Boy _ GBC - Kirby's Dream Land - Miscellaneous - HUD_8: 1721156888
+      Game Boy _ GBC - Kirby's Dream Land - Miscellaneous - HUD_9: 2130617027
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
