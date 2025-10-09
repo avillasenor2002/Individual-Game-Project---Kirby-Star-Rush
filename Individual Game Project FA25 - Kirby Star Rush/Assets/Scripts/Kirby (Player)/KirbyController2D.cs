@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class KirbyController2D : MonoBehaviour
+public class KirbyController2D_InputSystem : MonoBehaviour
 {
     [Header("Movement Settings")]
     [SerializeField] private float maxSpeed = 5f;
@@ -30,6 +30,11 @@ public class KirbyController2D : MonoBehaviour
     [SerializeField] private Collider2D normalCollider;
     [SerializeField] private Collider2D floatCollider;
 
+    [Header("Particles")]
+    [SerializeField] private ParticleSystem landParticles;
+    [SerializeField] private ParticleSystem runParticles;
+    [SerializeField] private ParticleSystem deflateParticles; // deflate particle prefab
+
     private Rigidbody2D rb;
     private Animator animator;
 
@@ -41,6 +46,9 @@ public class KirbyController2D : MonoBehaviour
     private bool floatStartedSoundPlayed = false;
 
     private float currentMaxSpeed;
+    private Vector2 moveInputValue = Vector2.zero;
+
+    private ParticleSystem activeRunParticles;
 
     private void Awake()
     {
@@ -51,30 +59,29 @@ public class KirbyController2D : MonoBehaviour
         if (audioSource == null)
             audioSource = gameObject.AddComponent<AudioSource>();
 
-        // Ensure only the normal collider starts enabled
         if (normalCollider != null) normalCollider.enabled = true;
         if (floatCollider != null) floatCollider.enabled = false;
+
+        // If runParticles prefab is assigned, create an instance
+        if (runParticles != null)
+        {
+            activeRunParticles = Instantiate(runParticles, transform);
+            activeRunParticles.Stop();
+        }
     }
 
     private void Update()
     {
-        float moveInput = Input.GetAxisRaw("Horizontal");
-        bool jumpPressed = Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.W);
-
-        if (jumpPressed)
-            HandleJump();
-
-        if (Input.GetMouseButtonDown(0) && isFloating)
-            StopFloating();
-
-        Move(moveInput);
+        Move(moveInputValue);
 
         animator.SetBool("isRunning", Mathf.Abs(rb.velocity.x) > 0.1f && grounded);
+
+        HandleRunParticles();
     }
 
     private void FixedUpdate()
     {
-        // Update grounded state
+        // Ground check
         wasGrounded = grounded;
         Collider2D[] colliders = Physics2D.OverlapCircleAll(groundCheck.position, groundCheckRadius, groundMask);
         grounded = colliders.Length > 0;
@@ -95,8 +102,9 @@ public class KirbyController2D : MonoBehaviour
             rb.velocity = new Vector2(rb.velocity.x, maxFallSpeed);
     }
 
-    private void Move(float moveInput)
+    private void Move(Vector2 input)
     {
+        float moveInput = input.x;
         float targetSpeed = moveInput * currentMaxSpeed;
         float speedDif = targetSpeed - rb.velocity.x;
         float accelRate = (Mathf.Abs(targetSpeed) > 0.01f) ? acceleration : deceleration;
@@ -108,7 +116,29 @@ public class KirbyController2D : MonoBehaviour
         else if (moveInput < 0 && facingRight) Flip();
     }
 
-    private void HandleJump()
+    private void HandleRunParticles()
+    {
+        if (activeRunParticles == null) return;
+
+        if (grounded && Mathf.Abs(rb.velocity.x) > 0.1f && !isFloating)
+        {
+            if (!activeRunParticles.isPlaying)
+                activeRunParticles.Play();
+
+            // Keep it near groundCheck
+            activeRunParticles.transform.position = new Vector3(groundCheck.position.x, groundCheck.position.y, activeRunParticles.transform.position.z);
+        }
+        else
+        {
+            if (activeRunParticles.isPlaying)
+                activeRunParticles.Stop();
+        }
+    }
+
+    // INPUT SYSTEM MESSAGE METHODS
+    public void onMovement(Vector2 input) => moveInputValue = input;
+
+    public void onJump()
     {
         if (grounded)
         {
@@ -121,16 +151,19 @@ public class KirbyController2D : MonoBehaviour
         else
         {
             if (!isFloating)
-            {
                 StartFloating();
-            }
             else
             {
-                // Air flutter
                 rb.AddForce(new Vector2(0f, puffForce));
                 PlayFlutter();
             }
         }
+    }
+
+    public void onSpecialAction()
+    {
+        if (isFloating)
+            StopFloating();
     }
 
     private void StartFloating()
@@ -141,7 +174,6 @@ public class KirbyController2D : MonoBehaviour
         animator.SetBool("isInflating", true);
         animator.SetBool("isFloating", false);
 
-        // Switch colliders
         if (normalCollider != null) normalCollider.enabled = false;
         if (floatCollider != null) floatCollider.enabled = true;
 
@@ -156,7 +188,7 @@ public class KirbyController2D : MonoBehaviour
 
     private IEnumerator FinishInflating()
     {
-        yield return new WaitForSeconds(0.15f); // inflate animation duration
+        yield return new WaitForSeconds(0.15f);
         animator.SetBool("isInflating", false);
         animator.SetBool("isFloating", true);
     }
@@ -171,20 +203,31 @@ public class KirbyController2D : MonoBehaviour
             animator.SetBool("isDeflating", true);
             animator.SetBool("isFloating", false);
 
-            // Switch colliders back
             if (normalCollider != null) normalCollider.enabled = true;
             if (floatCollider != null) floatCollider.enabled = false;
 
             if (deflateSound != null)
                 audioSource.PlayOneShot(deflateSound);
 
+            // NEW: Play deflate particles and flip to match facing direction
+            if (deflateParticles != null)
+            {
+                // Flip particle system locally based on facing direction
+                Vector3 particleScale = deflateParticles.transform.localScale;
+                particleScale.x = facingRight ? Mathf.Abs(particleScale.x) : -Mathf.Abs(particleScale.x);
+                deflateParticles.transform.localScale = particleScale;
+
+                deflateParticles.Play();
+            }
+
             StartCoroutine(FinishDeflating());
         }
     }
 
+
     private IEnumerator FinishDeflating()
     {
-        yield return new WaitForSeconds(0.15f); // deflate animation duration
+        yield return new WaitForSeconds(0.15f);
         animator.SetBool("isDeflating", false);
     }
 
@@ -200,7 +243,7 @@ public class KirbyController2D : MonoBehaviour
 
     private IEnumerator FinishFlutter()
     {
-        yield return new WaitForSeconds(0.1f); // flutter animation duration
+        yield return new WaitForSeconds(0.1f);
         animator.SetBool("isFluttering", false);
     }
 
@@ -212,6 +255,13 @@ public class KirbyController2D : MonoBehaviour
 
         if (landSound != null)
             audioSource.PlayOneShot(landSound);
+
+        if (landParticles != null)
+        {
+            ParticleSystem particles = Instantiate(landParticles, groundCheck.position, Quaternion.identity);
+            particles.Play();
+            Destroy(particles.gameObject, particles.main.duration);
+        }
 
         StartCoroutine(ResetLandingSoundFlag());
     }

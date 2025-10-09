@@ -1,0 +1,357 @@
+fileFormatVersion: 2
+guid: 76599bc9b6b988e42857ff5a553cb6ca
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 16
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Game Boy _ GBC - Kirby's Dream Land - Playable Characters - Kirby FLOAT
+        2_0
+      rect:
+        serializedVersion: 2
+        x: 52
+        y: 45
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 56f519bdbcc670d4fbf87f211e6d576c
+      internalID: 744627288
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy _ GBC - Kirby's Dream Land - Playable Characters - Kirby FLOAT
+        2_1
+      rect:
+        serializedVersion: 2
+        x: 27
+        y: 45
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5e8939a56223198479cb2b89796c6ce6
+      internalID: -2070513077
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy _ GBC - Kirby's Dream Land - Playable Characters - Kirby FLOAT
+        2_2
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 45
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 248d84177b75cda46aec621e49358107
+      internalID: -1465403017
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy _ GBC - Kirby's Dream Land - Playable Characters - Kirby FLOAT
+        2_3
+      rect:
+        serializedVersion: 2
+        x: 77
+        y: 45
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eb556978c6b9ea244b90e6d9694febd7
+      internalID: 125435368
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy _ GBC - Kirby's Dream Land - Playable Characters - Kirby FLOAT
+        2_4
+      rect:
+        serializedVersion: 2
+        x: 102
+        y: 45
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c989fec4bc880554a8d9ac780dab3266
+      internalID: 989094765
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy _ GBC - Kirby's Dream Land - Playable Characters - Kirby FLOAT
+        2_5
+      rect:
+        serializedVersion: 2
+        x: 127
+        y: 45
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ad85689a875619a41813484097e8f254
+      internalID: -1559719810
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy _ GBC - Kirby's Dream Land - Playable Characters - Kirby FLOAT
+        2_6
+      rect:
+        serializedVersion: 2
+        x: 152
+        y: 45
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 43aa9edf2f46ae44f9185ad88d9354a8
+      internalID: -2083300203
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy _ GBC - Kirby's Dream Land - Playable Characters - Kirby FLOAT
+        2_7
+      rect:
+        serializedVersion: 2
+        x: 177
+        y: 45
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2c28c9a64432fe145b6e83cfd19edcd4
+      internalID: -1830835062
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy _ GBC - Kirby's Dream Land - Playable Characters - Kirby FLOAT
+        2_8
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 70
+        width: 16
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0fb777c1312f99e46b159fe39083c53a
+      internalID: -136370252
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy _ GBC - Kirby's Dream Land - Playable Characters - Kirby FLOAT
+        2_9
+      rect:
+        serializedVersion: 2
+        x: 19
+        y: 70
+        width: 16
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a4ddcee249b412f41812e331ba8f5c76
+      internalID: -787335816
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      Game Boy _ GBC - Kirby's Dream Land - Playable Characters - Kirby FLOAT 2_0: 744627288
+      Game Boy _ GBC - Kirby's Dream Land - Playable Characters - Kirby FLOAT 2_1: -2070513077
+      Game Boy _ GBC - Kirby's Dream Land - Playable Characters - Kirby FLOAT 2_2: -1465403017
+      Game Boy _ GBC - Kirby's Dream Land - Playable Characters - Kirby FLOAT 2_3: 125435368
+      Game Boy _ GBC - Kirby's Dream Land - Playable Characters - Kirby FLOAT 2_4: 989094765
+      Game Boy _ GBC - Kirby's Dream Land - Playable Characters - Kirby FLOAT 2_5: -1559719810
+      Game Boy _ GBC - Kirby's Dream Land - Playable Characters - Kirby FLOAT 2_6: -2083300203
+      Game Boy _ GBC - Kirby's Dream Land - Playable Characters - Kirby FLOAT 2_7: -1830835062
+      Game Boy _ GBC - Kirby's Dream Land - Playable Characters - Kirby FLOAT 2_8: -136370252
+      Game Boy _ GBC - Kirby's Dream Land - Playable Characters - Kirby FLOAT 2_9: -787335816
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

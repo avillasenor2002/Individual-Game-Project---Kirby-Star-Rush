@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 0b86c4a828023804c83f23147b03903e
+guid: da6cc5d42ed6ede4ab45367654820245
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -48,7 +48,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 16
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -110,64 +110,45 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Game Boy _ GBC - Kirby's Dream Land - Miscellaneous - Effects_1
+      name: Game Boy _ GBC - Kirby's Dream Land - Playable Characters - Kirby FLOAT
+        1_0
       rect:
         serializedVersion: 2
-        x: 674
-        y: 527
-        width: 16
-        height: 16
+        x: 70
+        y: 1
+        width: 24
+        height: 26
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 67a8586b18576884e91e5d002a921582
-      internalID: 1857924267
+      spriteID: 33d6ee65efb74994386138ce7a31395e
+      internalID: -1942967687
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Game Boy _ GBC - Kirby's Dream Land - Miscellaneous - Effects_2
+      name: Game Boy _ GBC - Kirby's Dream Land - Playable Characters - Kirby FLOAT
+        1_1
       rect:
         serializedVersion: 2
-        x: 698
-        y: 471
-        width: 8
-        height: 8
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: ef4f74e20961d9041b28d142b3e31787
-      internalID: 408894392
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Game Boy _ GBC - Kirby's Dream Land - Miscellaneous - Effects_3
-      rect:
-        serializedVersion: 2
-        x: 694
-        y: 527
+        x: 138
+        y: 95
         width: 16
-        height: 16
+        height: 15
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1757358bf447d7e4586f245b9c056abc
-      internalID: 511034442
+      spriteID: ed6f67a4456aadb4281f6c9f6621103a
+      internalID: 101876014
       vertices: []
       indices: 
       edges: []
@@ -183,10 +164,8 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Game Boy _ GBC - Kirby's Dream Land - Miscellaneous - Effects_0: -940075179
-      Game Boy _ GBC - Kirby's Dream Land - Miscellaneous - Effects_1: 1857924267
-      Game Boy _ GBC - Kirby's Dream Land - Miscellaneous - Effects_2: 408894392
-      Game Boy _ GBC - Kirby's Dream Land - Miscellaneous - Effects_3: 511034442
+      Game Boy _ GBC - Kirby's Dream Land - Playable Characters - Kirby FLOAT 1_0: -1942967687
+      Game Boy _ GBC - Kirby's Dream Land - Playable Characters - Kirby FLOAT 1_1: 101876014
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
