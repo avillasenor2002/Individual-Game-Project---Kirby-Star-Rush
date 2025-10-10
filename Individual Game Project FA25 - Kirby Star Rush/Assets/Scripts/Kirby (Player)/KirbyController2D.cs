@@ -35,6 +35,9 @@ public class KirbyController2D_InputSystem : MonoBehaviour
     [SerializeField] private ParticleSystem runParticles;
     [SerializeField] private ParticleSystem deflateParticles; // deflate particle prefab
 
+    private bool jumpDisabled = false;
+    private float jumpDisableTimer = 0f;
+
     private Rigidbody2D rb;
     private Animator animator;
 
@@ -50,6 +53,13 @@ public class KirbyController2D_InputSystem : MonoBehaviour
 
     private ParticleSystem activeRunParticles;
 
+    public bool canFloat = true;
+    public bool isFacingRight { get; private set; } = true;
+
+
+    // NEW: Speed multiplier for external scripts (like inhale)
+    private float speedMultiplier = 1f;
+
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -62,7 +72,6 @@ public class KirbyController2D_InputSystem : MonoBehaviour
         if (normalCollider != null) normalCollider.enabled = true;
         if (floatCollider != null) floatCollider.enabled = false;
 
-        // If runParticles prefab is assigned, create an instance
         if (runParticles != null)
         {
             activeRunParticles = Instantiate(runParticles, transform);
@@ -73,15 +82,29 @@ public class KirbyController2D_InputSystem : MonoBehaviour
     private void Update()
     {
         Move(moveInputValue);
-
         animator.SetBool("isRunning", Mathf.Abs(rb.velocity.x) > 0.1f && grounded);
-
         HandleRunParticles();
+
+        // If jump is disabled, count down
+        if (jumpDisabled)
+        {
+            jumpDisableTimer -= Time.deltaTime;
+            if (jumpDisableTimer <= 0f)
+            {
+                jumpDisabled = false;
+            }
+        }
+
+    }
+
+    public void DisableJumpTemporarily(float duration = 0.2f)
+    {
+        jumpDisabled = true;
+        jumpDisableTimer = duration;
     }
 
     private void FixedUpdate()
     {
-        // Ground check
         wasGrounded = grounded;
         Collider2D[] colliders = Physics2D.OverlapCircleAll(groundCheck.position, groundCheckRadius, groundMask);
         grounded = colliders.Length > 0;
@@ -100,12 +123,13 @@ public class KirbyController2D_InputSystem : MonoBehaviour
 
         if (!isFloating && rb.velocity.y < maxFallSpeed)
             rb.velocity = new Vector2(rb.velocity.x, maxFallSpeed);
+
     }
 
     private void Move(Vector2 input)
     {
         float moveInput = input.x;
-        float targetSpeed = moveInput * currentMaxSpeed;
+        float targetSpeed = moveInput * currentMaxSpeed * speedMultiplier; // APPLY SPEED MULTIPLIER
         float speedDif = targetSpeed - rb.velocity.x;
         float accelRate = (Mathf.Abs(targetSpeed) > 0.01f) ? acceleration : deceleration;
         float movement = speedDif * accelRate * Time.deltaTime;
@@ -114,6 +138,9 @@ public class KirbyController2D_InputSystem : MonoBehaviour
 
         if (moveInput > 0 && !facingRight) Flip();
         else if (moveInput < 0 && facingRight) Flip();
+
+        if (moveInput > 0) isFacingRight = true;
+        else if (moveInput < 0) isFacingRight = false;
     }
 
     private void HandleRunParticles()
@@ -125,7 +152,6 @@ public class KirbyController2D_InputSystem : MonoBehaviour
             if (!activeRunParticles.isPlaying)
                 activeRunParticles.Play();
 
-            // Keep it near groundCheck
             activeRunParticles.transform.position = new Vector3(groundCheck.position.x, groundCheck.position.y, activeRunParticles.transform.position.z);
         }
         else
@@ -168,6 +194,7 @@ public class KirbyController2D_InputSystem : MonoBehaviour
 
     private void StartFloating()
     {
+        if (!canFloat) return;
         isFloating = true;
         rb.velocity = new Vector2(rb.velocity.x, 0f);
 
@@ -209,10 +236,8 @@ public class KirbyController2D_InputSystem : MonoBehaviour
             if (deflateSound != null)
                 audioSource.PlayOneShot(deflateSound);
 
-            // NEW: Play deflate particles and flip to match facing direction
             if (deflateParticles != null)
             {
-                // Flip particle system locally based on facing direction
                 Vector3 particleScale = deflateParticles.transform.localScale;
                 particleScale.x = facingRight ? Mathf.Abs(particleScale.x) : -Mathf.Abs(particleScale.x);
                 deflateParticles.transform.localScale = particleScale;
@@ -223,7 +248,6 @@ public class KirbyController2D_InputSystem : MonoBehaviour
             StartCoroutine(FinishDeflating());
         }
     }
-
 
     private IEnumerator FinishDeflating()
     {
@@ -285,5 +309,30 @@ public class KirbyController2D_InputSystem : MonoBehaviour
         Vector3 scale = transform.localScale;
         scale.x *= -1;
         transform.localScale = scale;
+    }
+
+    // Update it whenever the player changes direction
+    private void UpdateFacingDirection(float moveInput)
+    {
+        if (moveInput > 0) isFacingRight = true;
+        else if (moveInput < 0) isFacingRight = false;
+    }
+
+
+    // ------------------- NEW: speed multiplier -------------------
+    public void SetSpeedMultiplier(float multiplier)
+    {
+        speedMultiplier = multiplier;
+    }
+
+    public float CurrentJumpForce
+    {
+        get { return jumpForce; }
+        set { jumpForce = value; }
+    }
+
+    public float BaseMaxSpeed
+    {
+        get { return maxSpeed; }
     }
 }

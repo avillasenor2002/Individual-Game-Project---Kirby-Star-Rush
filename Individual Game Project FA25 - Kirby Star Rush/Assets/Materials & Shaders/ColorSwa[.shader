@@ -1,9 +1,11 @@
-﻿Shader "Unlit/ColorSwaWithLayeredShadow"
+﻿Shader "Unlit/ColorSwaWithLayeredShadow_Tint_MultiKey"
 {
     Properties
     {
         _MainTex("Sprite Texture", 2D) = "white" {}
-        _KeyColor("Color to Remove", Color) = (0,1,0,1)
+        _Color("Tint Color", Color) = (1,1,1,1)
+        _KeyColor("Color to Remove 1", Color) = (0,1,0,1)
+        _KeyColor2("Color to Remove 2", Color) = (1,0,0,1)
         _Threshold("Color Threshold", Range(0,1)) = 0.1
         _ShadowOffset("Shadow Offset", Vector) = (0.05, -0.05, 0, 0)
         _ShadowColor("Shadow Color", Color) = (0,0,0,0.5)
@@ -22,7 +24,7 @@
         Pass
         {
             Name "Shadow"
-            Tags { "Queue"="Transparent-1" "LightMode"="Always" } // render before main sprite
+            Tags { "Queue"="Transparent-1" "LightMode"="Always" }
 
             CGPROGRAM
             #pragma vertex vert
@@ -32,9 +34,11 @@
             sampler2D _MainTex;
             float4 _MainTex_ST;
             fixed4 _KeyColor;
+            fixed4 _KeyColor2;
             float _Threshold;
             float4 _ShadowOffset;
             fixed4 _ShadowColor;
+            fixed4 _Color;
 
             struct appdata
             {
@@ -51,16 +55,9 @@
             v2f vert(appdata v)
             {
                 v2f o;
-
-                // Convert vertex to world space first
                 float4 worldPos = mul(unity_ObjectToWorld, v.vertex);
-
-                // Apply shadow offset in world space (consistent even when flipped)
                 worldPos.xy += _ShadowOffset.xy;
-
-                // Transform back to clip space
                 o.vertex = mul(UNITY_MATRIX_VP, worldPos);
-
                 o.uv = TRANSFORM_TEX(v.uv, _MainTex);
                 return o;
             }
@@ -69,12 +66,10 @@
             {
                 fixed4 col = tex2D(_MainTex, i.uv);
 
-                // Ignore culled color
-                if (distance(col.rgb, _KeyColor.rgb) < _Threshold)
+                if (distance(col.rgb, _KeyColor.rgb) < _Threshold || distance(col.rgb, _KeyColor2.rgb) < _Threshold)
                     discard;
 
-                // Return shadow color
-                return _ShadowColor;
+                return _ShadowColor * _Color;
             }
             ENDCG
         }
@@ -93,7 +88,9 @@
             sampler2D _MainTex;
             float4 _MainTex_ST;
             fixed4 _KeyColor;
+            fixed4 _KeyColor2;
             float _Threshold;
+            fixed4 _Color;
 
             struct appdata
             {
@@ -119,9 +116,10 @@
             {
                 fixed4 col = tex2D(_MainTex, i.uv);
 
-                if (distance(col.rgb, _KeyColor.rgb) < _Threshold)
+                if (distance(col.rgb, _KeyColor.rgb) < _Threshold || distance(col.rgb, _KeyColor2.rgb) < _Threshold)
                     col.a = 0;
 
+                col *= _Color;
                 return col;
             }
             ENDCG

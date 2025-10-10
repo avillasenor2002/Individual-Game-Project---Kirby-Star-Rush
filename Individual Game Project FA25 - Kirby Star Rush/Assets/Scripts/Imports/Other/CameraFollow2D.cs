@@ -9,42 +9,41 @@ public class CameraFollow2D : MonoBehaviour
     [SerializeField] private Tilemap tilemap; // The Tilemap to determine bounds
     [SerializeField] private TileBase boundaryTile; // The tile used as the boundary marker
 
-    [SerializeField] private float smoothTime = 0.2f; // Time for the camera to catch up to the target position
+    [SerializeField] private float smoothTime = 0.2f; // Time for normal camera follow
     [SerializeField] private float edgeBuffer = 0.4f; // Buffer percentage of the camera's view near the edges before it starts moving
 
     private Vector3 velocity = Vector3.zero;
     private Camera cam;
     private float leftBound, rightBound, topBound, bottomBound;
 
+    private bool firstMoveDone = false; // track if initial rapid scroll has finished
+
     void Start()
     {
         cam = Camera.main;
         CalculateTilemapBounds();
+
+        // Start the rapid scroll at the very beginning
+        StartCoroutine(RapidScrollToTarget());
     }
 
     void LateUpdate()
     {
+        if (!firstMoveDone) return; // skip normal follow until initial rapid scroll is done
+
         Vector3 targetPosition = target.position;
         Vector3 viewportPosition = cam.WorldToViewportPoint(targetPosition);
         Vector3 desiredPosition = transform.position;
 
         if (viewportPosition.x < edgeBuffer)
-        {
             desiredPosition.x = targetPosition.x - (cam.orthographicSize * cam.aspect);
-        }
         else if (viewportPosition.x > 1f - edgeBuffer)
-        {
             desiredPosition.x = targetPosition.x + (cam.orthographicSize * cam.aspect);
-        }
 
         if (viewportPosition.y < edgeBuffer)
-        {
             desiredPosition.y = targetPosition.y - cam.orthographicSize;
-        }
         else if (viewportPosition.y > 1f - edgeBuffer)
-        {
             desiredPosition.y = targetPosition.y + cam.orthographicSize;
-        }
 
         float cameraHalfWidth = cam.orthographicSize * cam.aspect;
         float cameraHalfHeight = cam.orthographicSize;
@@ -94,11 +93,37 @@ public class CameraFollow2D : MonoBehaviour
             return;
         }
 
-        // Adjust bounds inward to ensure boundary tiles are never visible
         float tileSize = tilemap.cellSize.x; // Assuming square tiles
         leftBound += tileSize;
         rightBound -= tileSize;
         bottomBound += tileSize;
         topBound -= tileSize;
+    }
+
+    // ---------------------- Rapid scroll coroutine ----------------------
+    private IEnumerator RapidScrollToTarget()
+    {
+        float elapsed = 0f;
+        float rapidTime = 0.05f; // VERY FAST scroll duration (adjustable)
+        Vector3 startPos = transform.position;
+
+        float cameraHalfWidth = cam.orthographicSize * cam.aspect;
+        float cameraHalfHeight = cam.orthographicSize;
+
+        Vector3 targetPos = new Vector3(
+            Mathf.Clamp(target.position.x, leftBound + cameraHalfWidth, rightBound - cameraHalfWidth),
+            Mathf.Clamp(target.position.y, bottomBound + cameraHalfHeight, topBound - cameraHalfHeight),
+            transform.position.z
+        );
+
+        while (elapsed < rapidTime)
+        {
+            transform.position = Vector3.Lerp(startPos, targetPos, elapsed / rapidTime);
+            elapsed += Time.unscaledDeltaTime; // unscaled so not affected by time scale
+            yield return null;
+        }
+
+        transform.position = targetPos;
+        firstMoveDone = true; // enable normal camera follow
     }
 }

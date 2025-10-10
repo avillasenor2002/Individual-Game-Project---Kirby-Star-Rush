@@ -5,11 +5,15 @@ using UnityEngine;
 public class KirbyInhale : MonoBehaviour
 {
     [Header("Inhale Settings")]
-    [SerializeField] private CapsuleCollider2D inhaleCollider;   // the Inhale Range (should be a child collider)
-    [SerializeField] private float maxInhaleSpeed = 10f;          // maximum speed toward Kirby
-    [SerializeField] private float destroyDistance = 0.05f;       // when object is considered "in" Kirby
-    [SerializeField] private LayerMask inhalableLayer;           // layers of inhalable objects
-    [SerializeField] private AnimationCurve speedCurve = AnimationCurve.EaseInOut(0, 0.1f, 1, 1); // speed curve
+    [SerializeField] private CapsuleCollider2D inhaleCollider;
+    [SerializeField] private float maxInhaleSpeed = 10f;
+    [SerializeField] private float destroyDistance = 0.05f;
+    [SerializeField] private LayerMask inhalableLayer;
+    [SerializeField] private AnimationCurve speedCurve = AnimationCurve.EaseInOut(0, 0.1f, 1, 1);
+
+    [Header("Hitbox Toggle")]
+    [SerializeField] private Collider2D activeCollider;
+    [SerializeField] private Collider2D inactiveCollider;
 
     [Header("References")]
     [SerializeField] private Animator animator;
@@ -17,21 +21,23 @@ public class KirbyInhale : MonoBehaviour
     [SerializeField] private AudioClip inhaleSound;
     [SerializeField] private AudioSource audioSource;
 
-    [Header("Player penalties (optional)")]
+    [Header("Player penalties")]
     [SerializeField] private float inhaleSpeedReduction = 0.5f;
-    [SerializeField] private float reducedJumpForce = 200f;
+    [SerializeField] private float mouthfullSpeedReduction = 0.5f;
 
     private KirbyController2D_InputSystem controller;
     private bool isInhaling = false;
     private bool inhaleLocked = false;
+    private bool mouthfull = false;
     private BasicObject currentInhaleTarget = null;
     private List<Collider2D> disabledColliders = new List<Collider2D>();
-    private float originalMaxSpeed;
-    private float originalJumpForce;
     private Transform kirbyCenter;
-
-    // Track time since an object started being inhaled
     private float inhaleStartTime = 0f;
+    private bool successTriggered = false;
+
+    [Header("Spit Projectile")]
+    [SerializeField] private GameObject spitProjectilePrefab;
+    [SerializeField] private Vector3 spitOffset = new Vector3(0.5f, 0f, 0f);
 
     private void Awake()
     {
@@ -49,104 +55,126 @@ public class KirbyInhale : MonoBehaviour
 
         if (animator == null)
             animator = GetComponentInParent<Animator>();
+
+        activeCollider.enabled = false;
+        inactiveCollider.enabled = true;
     }
 
     private void Update()
     {
         if (isInhaling)
             HandleInhalePull();
-    }
 
-    // ---------------- Public input methods ----------------
+        if (animator != null)
+            animator.SetBool("isFULL", mouthfull);
+
+        if (controller != null)
+            controller.canFloat = !(isInhaling || mouthfull);
+
+        // Ensure hitboxes always match state
+        if (activeCollider != null)
+            activeCollider.enabled = isInhaling || mouthfull;
+        if (inactiveCollider != null)
+            inactiveCollider.enabled = !(isInhaling || mouthfull);
+    }
 
     public void StartInhaleIfNotFloating()
     {
+        if (mouthfull)
+        {
+            EmptyMouth();
+            return;
+        }
+
         if (inhaleLocked) return;
 
         if (controller != null)
         {
             var isFloatingField = typeof(KirbyController2D_InputSystem)
                 .GetField("isFloating", System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance);
-            if (isFloatingField != null)
-            {
-                bool isFloating = (bool)isFloatingField.GetValue(controller);
-                if (isFloating) return;
-            }
+            if (isFloatingField != null && (bool)isFloatingField.GetValue(controller))
+                return;
         }
 
         StartInhale();
     }
 
-    public void HoldInhale()
-    {
-        if (isInhaling)
-            HandleInhalePull();
-    }
-
     public void StopInhalePublic()
     {
-        if (!inhaleLocked)
+        if (!inhaleLocked && !mouthfull)
             StopInhaleInternal();
     }
 
-    // ---------------- Internal inhale ----------------
+    public void EmptyMouth()
+    {
+        if (!mouthfull) return;
+
+        mouthfull = false;
+        successTriggered = false;
+        ResetAnimationTriggers();
+
+        if (animator != null)
+        {
+            animator.SetTrigger("Spit");
+            StartCoroutine(ResetTriggerAfterAnimation("Spit"));
+        }
+
+        if (controller != null)
+        {
+            controller.SetSpeedMultiplier(1f);
+            controller.canFloat = true;
+        }
+
+        // Spawn projectile when spitting
+        if (spitProjectilePrefab != null && controller != null)
+        {
+            Vector3 spawnPos = transform.position + (controller.isFacingRight ? spitOffset : new Vector3(-spitOffset.x, spitOffset.y, spitOffset.z));
+            GameObject proj = Instantiate(spitProjectilePrefab, spawnPos, Quaternion.identity);
+
+            SpitProjectile projectileScript = proj.GetComponent<SpitProjectile>();
+            if (projectileScript != null)
+                projectileScript.direction = controller.isFacingRight ? Vector2.right : Vector2.left;
+        }
+    }
 
     private void StartInhale()
     {
         if (isInhaling) return;
         isInhaling = true;
 
+        activeCollider.enabled = true;
+        inactiveCollider.enabled = false;
+
         if (controller != null)
-        {
-            var maxSpeedField = typeof(KirbyController2D_InputSystem)
-                .GetField("maxSpeed", System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance);
-            if (maxSpeedField != null)
-            {
-                originalMaxSpeed = (float)maxSpeedField.GetValue(controller);
-                maxSpeedField.SetValue(controller, originalMaxSpeed * inhaleSpeedReduction);
-            }
+            controller.SetSpeedMultiplier(inhaleSpeedReduction);
 
-            var jumpForceField = typeof(KirbyController2D_InputSystem)
-                .GetField("jumpForce", System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance);
-            if (jumpForceField != null)
-            {
-                originalJumpForce = (float)jumpForceField.GetValue(controller);
-                jumpForceField.SetValue(controller, reducedJumpForce);
-            }
-        }
-
-        if (animator != null) animator.SetBool("isInhaling", true);
-        if (inhaleParticles != null) inhaleParticles.Play();
-        if (inhaleSound != null && audioSource != null) audioSource.PlayOneShot(inhaleSound);
+        animator?.SetBool("isInhaling", true);
+        inhaleParticles?.Play();
+        if (inhaleSound != null && audioSource != null)
+            audioSource.PlayOneShot(inhaleSound);
     }
 
     private void StopInhaleInternal()
     {
         isInhaling = false;
 
-        if (animator != null)
-        {
-            animator.SetBool("isInhaling", false);
+        // activeCollider remains enabled if mouthfull
+        activeCollider.enabled = mouthfull;
+        inactiveCollider.enabled = !mouthfull;
+
+        animator?.SetBool("isInhaling", false);
+        if (!mouthfull && !successTriggered && animator != null)
             animator.SetTrigger("InhaleFail");
-        }
 
-        if (inhaleParticles != null && inhaleParticles.isPlaying)
-            inhaleParticles.Stop();
-
+        inhaleParticles?.Stop();
         if (audioSource != null && audioSource.isPlaying)
             audioSource.Stop();
 
         if (controller != null)
         {
-            var maxSpeedField = typeof(KirbyController2D_InputSystem)
-                .GetField("maxSpeed", System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance);
-            if (maxSpeedField != null)
-                maxSpeedField.SetValue(controller, originalMaxSpeed);
-
-            var jumpForceField = typeof(KirbyController2D_InputSystem)
-                .GetField("jumpForce", System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance);
-            if (jumpForceField != null)
-                jumpForceField.SetValue(controller, originalJumpForce);
+            float speed = mouthfull ? mouthfullSpeedReduction : 1f;
+            controller.SetSpeedMultiplier(speed);
+            controller.canFloat = !mouthfull;
         }
 
         if (currentInhaleTarget != null)
@@ -159,9 +187,9 @@ public class KirbyInhale : MonoBehaviour
         inhaleLocked = false;
         disabledColliders.Clear();
         inhaleStartTime = 0f;
-    }
 
-    // ---------------- Selection and movement ----------------
+        ResetAnimationTriggers();
+    }
 
     private void HandleInhalePull()
     {
@@ -173,7 +201,6 @@ public class KirbyInhale : MonoBehaviour
             filter.useLayerMask = true;
 
             int found = inhaleCollider.OverlapCollider(filter, hits);
-
             if (found > 0)
             {
                 BasicObject closest = null;
@@ -199,10 +226,8 @@ public class KirbyInhale : MonoBehaviour
                     currentInhaleTarget = closest;
                     currentInhaleTarget.StartBeingInhaled();
 
-                    // disable colliders
                     disabledColliders.Clear();
-                    Collider2D[] cols = currentInhaleTarget.GetComponentsInChildren<Collider2D>(true);
-                    foreach (var c in cols)
+                    foreach (var c in currentInhaleTarget.GetComponentsInChildren<Collider2D>(true))
                     {
                         if (c != null && c.enabled)
                         {
@@ -212,7 +237,7 @@ public class KirbyInhale : MonoBehaviour
                     }
 
                     inhaleLocked = true;
-                    inhaleStartTime = 0f; // reset curve timer
+                    inhaleStartTime = 0f;
                 }
             }
         }
@@ -220,11 +245,9 @@ public class KirbyInhale : MonoBehaviour
         if (currentInhaleTarget != null)
         {
             inhaleStartTime += Time.deltaTime;
-
             Vector3 targetPos = kirbyCenter != null ? kirbyCenter.position : transform.position;
 
-            // Evaluate curve (normalized time) to get speed multiplier
-            float t = Mathf.Clamp01(inhaleStartTime); // assuming curve from 0 to 1 second
+            float t = Mathf.Clamp01(inhaleStartTime);
             float curveSpeed = speedCurve.Evaluate(t) * maxInhaleSpeed;
 
             currentInhaleTarget.transform.position = Vector3.MoveTowards(
@@ -239,8 +262,42 @@ public class KirbyInhale : MonoBehaviour
                 currentInhaleTarget = null;
                 inhaleLocked = false;
                 StopInhaleInternal();
+
+                if (!mouthfull && !successTriggered)
+                {
+                    mouthfull = true;
+                    successTriggered = true;
+                    PlayInhaleSuccessSequence();
+
+                    if (controller != null)
+                    {
+                        controller.SetSpeedMultiplier(mouthfullSpeedReduction);
+                        controller.canFloat = false;
+                    }
+                }
             }
         }
+    }
+
+    private void PlayInhaleSuccessSequence()
+    {
+        if (animator == null) return;
+        animator.SetTrigger("InhaleSuccess");
+        StartCoroutine(ResetTriggerAfterAnimation("InhaleSuccess"));
+    }
+
+    private System.Collections.IEnumerator ResetTriggerAfterAnimation(string triggerName)
+    {
+        if (animator == null) yield break;
+
+        while (!animator.GetCurrentAnimatorStateInfo(0).IsName(triggerName))
+            yield return null;
+
+        while (animator.GetCurrentAnimatorStateInfo(0).IsName(triggerName) &&
+               animator.GetCurrentAnimatorStateInfo(0).normalizedTime < 1f)
+            yield return null;
+
+        animator.ResetTrigger(triggerName);
     }
 
     private void RestoreDisabledColliders()
@@ -252,4 +309,14 @@ public class KirbyInhale : MonoBehaviour
         }
         disabledColliders.Clear();
     }
+
+    private void ResetAnimationTriggers()
+    {
+        if (animator == null) return;
+        animator.ResetTrigger("InhaleSuccess");
+        animator.ResetTrigger("InhaleFail");
+        animator.ResetTrigger("Spit");
+    }
+
+    public bool IsMouthfull => mouthfull;
 }
