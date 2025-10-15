@@ -1,0 +1,1852 @@
+fileFormatVersion: 2
+guid: b220cc0fc720ca74382e1ff3417cbbfe
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 16
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Game Boy _ GBC - Kirby's Dream Land - Enemies & Bosses - Enemies (1)-export_0
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 128
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2442ff6e7134c804eb35aab3048149f7
+      internalID: 123783211
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy _ GBC - Kirby's Dream Land - Enemies & Bosses - Enemies (1)-export_1
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 128
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9ff2c5784fc8927448c999f402c8d38c
+      internalID: -1402920347
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy _ GBC - Kirby's Dream Land - Enemies & Bosses - Enemies (1)-export_2
+      rect:
+        serializedVersion: 2
+        x: 56
+        y: 128
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 183f811b8b303e34aab87a50e005f83a
+      internalID: -507462447
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy _ GBC - Kirby's Dream Land - Enemies & Bosses - Enemies (1)-export_3
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 128
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a69dbb07732147b478fb3a7b1d00d92b
+      internalID: -1300128113
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy _ GBC - Kirby's Dream Land - Enemies & Bosses - Enemies (1)-export_4
+      rect:
+        serializedVersion: 2
+        x: 104
+        y: 128
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8a34d2b34cdcccc4ab4ce88604d2664e
+      internalID: -567036818
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy _ GBC - Kirby's Dream Land - Enemies & Bosses - Enemies (1)-export_5
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 128
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f19f1f2520f53cf40b52a53dd27d2835
+      internalID: 531596196
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy _ GBC - Kirby's Dream Land - Enemies & Bosses - Enemies (1)-export_6
+      rect:
+        serializedVersion: 2
+        x: 152
+        y: 128
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a455fe616f8d91c46819f60a94699321
+      internalID: 1010617587
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy _ GBC - Kirby's Dream Land - Enemies & Bosses - Enemies (1)-export_7
+      rect:
+        serializedVersion: 2
+        x: 176
+        y: 128
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 18e8b0c8a41f3c34aa9b62ea93979cd3
+      internalID: -1212480700
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy _ GBC - Kirby's Dream Land - Enemies & Bosses - Enemies (1)-export_8
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 128
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9e18357024ce1ca44b84e0e3f15d5bf8
+      internalID: -1117545460
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy _ GBC - Kirby's Dream Land - Enemies & Bosses - Enemies (1)-export_9
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 128
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c6a86595810d8f842afe669c3e3ed5d0
+      internalID: -1070883107
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy _ GBC - Kirby's Dream Land - Enemies & Bosses - Enemies (1)-export_10
+      rect:
+        serializedVersion: 2
+        x: 248
+        y: 128
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c3c6b22c6476cb341b46533b4699a6c8
+      internalID: -425302221
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy _ GBC - Kirby's Dream Land - Enemies & Bosses - Enemies (1)-export_11
+      rect:
+        serializedVersion: 2
+        x: 272
+        y: 128
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cbaebbca819f3e0469286aed2d130bcc
+      internalID: -776731848
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy _ GBC - Kirby's Dream Land - Enemies & Bosses - Enemies (1)-export_12
+      rect:
+        serializedVersion: 2
+        x: 296
+        y: 128
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6504889b8d7c2f44aa3eb73029ab6b73
+      internalID: 246523782
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy _ GBC - Kirby's Dream Land - Enemies & Bosses - Enemies (1)-export_13
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 128
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7d7e0dbc2ac1fdc448b117948d8feaad
+      internalID: -1171942619
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy _ GBC - Kirby's Dream Land - Enemies & Bosses - Enemies (1)-export_14
+      rect:
+        serializedVersion: 2
+        x: 344
+        y: 112
+        width: 24
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 31dd94636a474444dbb0835f05b263ed
+      internalID: 459752048
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy _ GBC - Kirby's Dream Land - Enemies & Bosses - Enemies (1)-export_15
+      rect:
+        serializedVersion: 2
+        x: 376
+        y: 112
+        width: 24
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b445a1abf96ada54ea7a85e823ef227d
+      internalID: 250248468
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy _ GBC - Kirby's Dream Land - Enemies & Bosses - Enemies (1)-export_16
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 88
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1ebc1c42c78c2ba4b958a8ff03eb400e
+      internalID: -1855072066
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy _ GBC - Kirby's Dream Land - Enemies & Bosses - Enemies (1)-export_17
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 88
+        width: 24
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b7ff5dff2e281464a9c40f0e9d039474
+      internalID: 565828382
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy _ GBC - Kirby's Dream Land - Enemies & Bosses - Enemies (1)-export_18
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 88
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 68709e79b450f0247a13243927ee17a7
+      internalID: -1655731492
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy _ GBC - Kirby's Dream Land - Enemies & Bosses - Enemies (1)-export_19
+      rect:
+        serializedVersion: 2
+        x: 88
+        y: 88
+        width: 8
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b1f10342c973ccf4cb05f05532ead983
+      internalID: 508089660
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy _ GBC - Kirby's Dream Land - Enemies & Bosses - Enemies (1)-export_20
+      rect:
+        serializedVersion: 2
+        x: 104
+        y: 88
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dc23b1ed2f916cc439f1e6a00cafc508
+      internalID: -576725220
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy _ GBC - Kirby's Dream Land - Enemies & Bosses - Enemies (1)-export_21
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 88
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d20ac821594baa940a8f78f636f3733b
+      internalID: 1874786047
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy _ GBC - Kirby's Dream Land - Enemies & Bosses - Enemies (1)-export_22
+      rect:
+        serializedVersion: 2
+        x: 152
+        y: 88
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 46a1975842fcd2b4b9a9fb6653a2d47b
+      internalID: 894785626
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy _ GBC - Kirby's Dream Land - Enemies & Bosses - Enemies (1)-export_23
+      rect:
+        serializedVersion: 2
+        x: 176
+        y: 88
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0a81a9b01c4784141a23c7eb3062ed44
+      internalID: -946681377
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy _ GBC - Kirby's Dream Land - Enemies & Bosses - Enemies (1)-export_24
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 88
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 77b4dd9d4b9a32448a0075ea5bc388d4
+      internalID: 1371359338
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy _ GBC - Kirby's Dream Land - Enemies & Bosses - Enemies (1)-export_25
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 88
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6b4d8e67a3898f541983ad7cd0c1956e
+      internalID: 1488168940
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy _ GBC - Kirby's Dream Land - Enemies & Bosses - Enemies (1)-export_26
+      rect:
+        serializedVersion: 2
+        x: 248
+        y: 88
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fd769e81e0380ec4ba2bef24a8fbf1a2
+      internalID: -1085960864
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy _ GBC - Kirby's Dream Land - Enemies & Bosses - Enemies (1)-export_27
+      rect:
+        serializedVersion: 2
+        x: 272
+        y: 88
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d6ddfeba7b27a8949b4b467b126db046
+      internalID: 1604607026
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy _ GBC - Kirby's Dream Land - Enemies & Bosses - Enemies (1)-export_28
+      rect:
+        serializedVersion: 2
+        x: 296
+        y: 88
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 93512e0528e52dd4eb690dea2ba837b6
+      internalID: -1914223629
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy _ GBC - Kirby's Dream Land - Enemies & Bosses - Enemies (1)-export_29
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 88
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 092bc439790e142479431cb17edf8e43
+      internalID: -1182861701
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy _ GBC - Kirby's Dream Land - Enemies & Bosses - Enemies (1)-export_30
+      rect:
+        serializedVersion: 2
+        x: 336
+        y: 88
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 776b7530b34096742b90e885a88f236a
+      internalID: -478026288
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy _ GBC - Kirby's Dream Land - Enemies & Bosses - Enemies (1)-export_31
+      rect:
+        serializedVersion: 2
+        x: 360
+        y: 88
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5b9dc1df2923e2248a9d779bd74ae655
+      internalID: 1104090846
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy _ GBC - Kirby's Dream Land - Enemies & Bosses - Enemies (1)-export_32
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 88
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5c8fb657a88095d43974908db5766da6
+      internalID: -2046111305
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy _ GBC - Kirby's Dream Land - Enemies & Bosses - Enemies (1)-export_33
+      rect:
+        serializedVersion: 2
+        x: 408
+        y: 88
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d868680187755a742a14af41bdbcb9bc
+      internalID: 1486908904
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy _ GBC - Kirby's Dream Land - Enemies & Bosses - Enemies (1)-export_34
+      rect:
+        serializedVersion: 2
+        x: 432
+        y: 88
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4b481e3e825a14d41af63d776196e33b
+      internalID: -686255985
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy _ GBC - Kirby's Dream Land - Enemies & Bosses - Enemies (1)-export_35
+      rect:
+        serializedVersion: 2
+        x: 456
+        y: 88
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 41965e40990d5b64d95233d1d3449110
+      internalID: -1086742615
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy _ GBC - Kirby's Dream Land - Enemies & Bosses - Enemies (1)-export_36
+      rect:
+        serializedVersion: 2
+        x: 480
+        y: 88
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 26f18a00d9fd33b4b9ec01fc8bcd5e25
+      internalID: 1540139800
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy _ GBC - Kirby's Dream Land - Enemies & Bosses - Enemies (1)-export_37
+      rect:
+        serializedVersion: 2
+        x: 504
+        y: 88
+        width: 8
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 283c4c51056ee524ea8e7ba192c3d0e0
+      internalID: -379265835
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy _ GBC - Kirby's Dream Land - Enemies & Bosses - Enemies (1)-export_38
+      rect:
+        serializedVersion: 2
+        x: 520
+        y: 88
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7e986edb1283af844919a5e258992249
+      internalID: -245874549
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy _ GBC - Kirby's Dream Land - Enemies & Bosses - Enemies (1)-export_39
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 48
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fd0222a1422cd6c4da38e76755b412f7
+      internalID: 256676155
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy _ GBC - Kirby's Dream Land - Enemies & Bosses - Enemies (1)-export_40
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 48
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0dab2099e85c8e741aaaeaef5d4f7fe7
+      internalID: 1763999150
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy _ GBC - Kirby's Dream Land - Enemies & Bosses - Enemies (1)-export_41
+      rect:
+        serializedVersion: 2
+        x: 56
+        y: 48
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3d46895f041ff4447ad7010fcab73de9
+      internalID: -1936407408
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy _ GBC - Kirby's Dream Land - Enemies & Bosses - Enemies (1)-export_42
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 48
+        width: 8
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 845b054f74654ef4fa1e52e067969fc4
+      internalID: 1399686890
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy _ GBC - Kirby's Dream Land - Enemies & Bosses - Enemies (1)-export_43
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 48
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a96af7fe15ddd0142ab93f9bc2edab83
+      internalID: 2145741677
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy _ GBC - Kirby's Dream Land - Enemies & Bosses - Enemies (1)-export_44
+      rect:
+        serializedVersion: 2
+        x: 120
+        y: 48
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bbe7dfdda5ef1b54a94b22078a62d0f9
+      internalID: -1230591977
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy _ GBC - Kirby's Dream Land - Enemies & Bosses - Enemies (1)-export_45
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 48
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3bd221d6f6cc98a4fa246e91a91d6598
+      internalID: 159681745
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy _ GBC - Kirby's Dream Land - Enemies & Bosses - Enemies (1)-export_46
+      rect:
+        serializedVersion: 2
+        x: 168
+        y: 48
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cb83047dcd141364aa5f135b0950a26e
+      internalID: -1653081374
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy _ GBC - Kirby's Dream Land - Enemies & Bosses - Enemies (1)-export_47
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 48
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e428162ff0382c24ab347d791f7bd294
+      internalID: -2092051102
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy _ GBC - Kirby's Dream Land - Enemies & Bosses - Enemies (1)-export_48
+      rect:
+        serializedVersion: 2
+        x: 216
+        y: 48
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b28a3dfa716cfc14f8a83320f932a188
+      internalID: -1478604812
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy _ GBC - Kirby's Dream Land - Enemies & Bosses - Enemies (1)-export_49
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 48
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 81ab871a302c4f748b7a6828188bd395
+      internalID: 1094417178
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy _ GBC - Kirby's Dream Land - Enemies & Bosses - Enemies (1)-export_50
+      rect:
+        serializedVersion: 2
+        x: 264
+        y: 48
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7f096a011fe3052499f6a413b80b195c
+      internalID: -679111388
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy _ GBC - Kirby's Dream Land - Enemies & Bosses - Enemies (1)-export_51
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 48
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e51720f2216e0544fad2fb710917834c
+      internalID: 142151551
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy _ GBC - Kirby's Dream Land - Enemies & Bosses - Enemies (1)-export_52
+      rect:
+        serializedVersion: 2
+        x: 312
+        y: 48
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5fbbf56635707b64bb6a33b0fb2ce2b2
+      internalID: -409775950
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy _ GBC - Kirby's Dream Land - Enemies & Bosses - Enemies (1)-export_53
+      rect:
+        serializedVersion: 2
+        x: 336
+        y: 48
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0e10a00f046c02d4fa4b90fbbdf8bf17
+      internalID: 474128792
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy _ GBC - Kirby's Dream Land - Enemies & Bosses - Enemies (1)-export_54
+      rect:
+        serializedVersion: 2
+        x: 360
+        y: 48
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 48d13594a4e51d64f8dcde5948bd5231
+      internalID: 1729681489
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy _ GBC - Kirby's Dream Land - Enemies & Bosses - Enemies (1)-export_55
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 48
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e72a1dc949d74fc4bbc49615e394d6f1
+      internalID: 967327107
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy _ GBC - Kirby's Dream Land - Enemies & Bosses - Enemies (1)-export_56
+      rect:
+        serializedVersion: 2
+        x: 408
+        y: 48
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7cfbc9b8ff343544f9631a081eda00cf
+      internalID: -1371180690
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy _ GBC - Kirby's Dream Land - Enemies & Bosses - Enemies (1)-export_57
+      rect:
+        serializedVersion: 2
+        x: 432
+        y: 48
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4743e83301e30914b9424982f0654452
+      internalID: -2029900676
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy _ GBC - Kirby's Dream Land - Enemies & Bosses - Enemies (1)-export_58
+      rect:
+        serializedVersion: 2
+        x: 456
+        y: 48
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4af0c31ecba255e46b5eddeabd80b7de
+      internalID: 788550333
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy _ GBC - Kirby's Dream Land - Enemies & Bosses - Enemies (1)-export_59
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 8
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7e4d8a604921c7948831dc9c6ed03a6c
+      internalID: -1216815735
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy _ GBC - Kirby's Dream Land - Enemies & Bosses - Enemies (1)-export_60
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 8
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f2f3c0f65b5c4c84abe3982fbf204e18
+      internalID: 1545629807
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy _ GBC - Kirby's Dream Land - Enemies & Bosses - Enemies (1)-export_61
+      rect:
+        serializedVersion: 2
+        x: 56
+        y: 8
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bd7247474701f084d9e066b16d688b07
+      internalID: -278755940
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy _ GBC - Kirby's Dream Land - Enemies & Bosses - Enemies (1)-export_62
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 8
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3912da86b0cf483429736d09b86ed01d
+      internalID: -595680179
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy _ GBC - Kirby's Dream Land - Enemies & Bosses - Enemies (1)-export_63
+      rect:
+        serializedVersion: 2
+        x: 104
+        y: 8
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aaa99baa09c2b8b43801c17de907570c
+      internalID: -737471637
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy _ GBC - Kirby's Dream Land - Enemies & Bosses - Enemies (1)-export_64
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 8
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 227b478196c03934cb31544ae21662ed
+      internalID: -1500880479
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy _ GBC - Kirby's Dream Land - Enemies & Bosses - Enemies (1)-export_65
+      rect:
+        serializedVersion: 2
+        x: 152
+        y: 8
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f69c37ea88a0ec84d977601cafd67736
+      internalID: 1849211632
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy _ GBC - Kirby's Dream Land - Enemies & Bosses - Enemies (1)-export_66
+      rect:
+        serializedVersion: 2
+        x: 176
+        y: 8
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b7a3e18da142d874085b9616c23a47fd
+      internalID: -2074675391
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy _ GBC - Kirby's Dream Land - Enemies & Bosses - Enemies (1)-export_67
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 8
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d0a338531803bc84ebe64f3f982cece5
+      internalID: 759942455
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy _ GBC - Kirby's Dream Land - Enemies & Bosses - Enemies (1)-export_68
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 8
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3e1b6368224ce044f8e9e550a5c44e4d
+      internalID: 1232411980
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy _ GBC - Kirby's Dream Land - Enemies & Bosses - Enemies (1)-export_69
+      rect:
+        serializedVersion: 2
+        x: 248
+        y: 8
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7097f3ada49ed254bb51ca13a8ed53ef
+      internalID: 996311972
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy _ GBC - Kirby's Dream Land - Enemies & Bosses - Enemies (1)-export_70
+      rect:
+        serializedVersion: 2
+        x: 272
+        y: 8
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5153c946b6fed694590b90df526bce77
+      internalID: 103233374
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy _ GBC - Kirby's Dream Land - Enemies & Bosses - Enemies (1)-export_71
+      rect:
+        serializedVersion: 2
+        x: 296
+        y: 8
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 21a1a1f1fadd01d42986d33e4c8dcdd2
+      internalID: -1801903565
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy _ GBC - Kirby's Dream Land - Enemies & Bosses - Enemies (1)-export_72
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 8
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 186c8865de55ed94dafd689677294819
+      internalID: 1659167902
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy _ GBC - Kirby's Dream Land - Enemies & Bosses - Enemies (1)-export_73
+      rect:
+        serializedVersion: 2
+        x: 344
+        y: 8
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 25819c4c9ff2dff4a97aa2a2a17176bd
+      internalID: -308964525
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy _ GBC - Kirby's Dream Land - Enemies & Bosses - Enemies (1)-export_74
+      rect:
+        serializedVersion: 2
+        x: 368
+        y: 8
+        width: 8
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: deca2eedb42cb894cb5bb04c67d9cde8
+      internalID: -1277829288
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy _ GBC - Kirby's Dream Land - Enemies & Bosses - Enemies (1)-export_75
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 8
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 337e0899fa663ad4c9f99cd31f64f717
+      internalID: 583711493
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy _ GBC - Kirby's Dream Land - Enemies & Bosses - Enemies (1)-export_76
+      rect:
+        serializedVersion: 2
+        x: 408
+        y: 8
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 162ee9a528d25d349999a292fa29da83
+      internalID: 1270436189
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy _ GBC - Kirby's Dream Land - Enemies & Bosses - Enemies (1)-export_77
+      rect:
+        serializedVersion: 2
+        x: 432
+        y: 8
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ad8b9da93023ba746a7eda998343ea3b
+      internalID: 1368883719
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Game Boy _ GBC - Kirby's Dream Land - Enemies & Bosses - Enemies (1)-export_78
+      rect:
+        serializedVersion: 2
+        x: 456
+        y: 8
+        width: 8
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 52605b3a1ff86b148b7b3fe4af0d0a86
+      internalID: -2086189262
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      Game Boy _ GBC - Kirby's Dream Land - Enemies & Bosses - Enemies (1)-export_0: 123783211
+      Game Boy _ GBC - Kirby's Dream Land - Enemies & Bosses - Enemies (1)-export_1: -1402920347
+      Game Boy _ GBC - Kirby's Dream Land - Enemies & Bosses - Enemies (1)-export_10: -425302221
+      Game Boy _ GBC - Kirby's Dream Land - Enemies & Bosses - Enemies (1)-export_11: -776731848
+      Game Boy _ GBC - Kirby's Dream Land - Enemies & Bosses - Enemies (1)-export_12: 246523782
+      Game Boy _ GBC - Kirby's Dream Land - Enemies & Bosses - Enemies (1)-export_13: -1171942619
+      Game Boy _ GBC - Kirby's Dream Land - Enemies & Bosses - Enemies (1)-export_14: 459752048
+      Game Boy _ GBC - Kirby's Dream Land - Enemies & Bosses - Enemies (1)-export_15: 250248468
+      Game Boy _ GBC - Kirby's Dream Land - Enemies & Bosses - Enemies (1)-export_16: -1855072066
+      Game Boy _ GBC - Kirby's Dream Land - Enemies & Bosses - Enemies (1)-export_17: 565828382
+      Game Boy _ GBC - Kirby's Dream Land - Enemies & Bosses - Enemies (1)-export_18: -1655731492
+      Game Boy _ GBC - Kirby's Dream Land - Enemies & Bosses - Enemies (1)-export_19: 508089660
+      Game Boy _ GBC - Kirby's Dream Land - Enemies & Bosses - Enemies (1)-export_2: -507462447
+      Game Boy _ GBC - Kirby's Dream Land - Enemies & Bosses - Enemies (1)-export_20: -576725220
+      Game Boy _ GBC - Kirby's Dream Land - Enemies & Bosses - Enemies (1)-export_21: 1874786047
+      Game Boy _ GBC - Kirby's Dream Land - Enemies & Bosses - Enemies (1)-export_22: 894785626
+      Game Boy _ GBC - Kirby's Dream Land - Enemies & Bosses - Enemies (1)-export_23: -946681377
+      Game Boy _ GBC - Kirby's Dream Land - Enemies & Bosses - Enemies (1)-export_24: 1371359338
+      Game Boy _ GBC - Kirby's Dream Land - Enemies & Bosses - Enemies (1)-export_25: 1488168940
+      Game Boy _ GBC - Kirby's Dream Land - Enemies & Bosses - Enemies (1)-export_26: -1085960864
+      Game Boy _ GBC - Kirby's Dream Land - Enemies & Bosses - Enemies (1)-export_27: 1604607026
+      Game Boy _ GBC - Kirby's Dream Land - Enemies & Bosses - Enemies (1)-export_28: -1914223629
+      Game Boy _ GBC - Kirby's Dream Land - Enemies & Bosses - Enemies (1)-export_29: -1182861701
+      Game Boy _ GBC - Kirby's Dream Land - Enemies & Bosses - Enemies (1)-export_3: -1300128113
+      Game Boy _ GBC - Kirby's Dream Land - Enemies & Bosses - Enemies (1)-export_30: -478026288
+      Game Boy _ GBC - Kirby's Dream Land - Enemies & Bosses - Enemies (1)-export_31: 1104090846
+      Game Boy _ GBC - Kirby's Dream Land - Enemies & Bosses - Enemies (1)-export_32: -2046111305
+      Game Boy _ GBC - Kirby's Dream Land - Enemies & Bosses - Enemies (1)-export_33: 1486908904
+      Game Boy _ GBC - Kirby's Dream Land - Enemies & Bosses - Enemies (1)-export_34: -686255985
+      Game Boy _ GBC - Kirby's Dream Land - Enemies & Bosses - Enemies (1)-export_35: -1086742615
+      Game Boy _ GBC - Kirby's Dream Land - Enemies & Bosses - Enemies (1)-export_36: 1540139800
+      Game Boy _ GBC - Kirby's Dream Land - Enemies & Bosses - Enemies (1)-export_37: -379265835
+      Game Boy _ GBC - Kirby's Dream Land - Enemies & Bosses - Enemies (1)-export_38: -245874549
+      Game Boy _ GBC - Kirby's Dream Land - Enemies & Bosses - Enemies (1)-export_39: 256676155
+      Game Boy _ GBC - Kirby's Dream Land - Enemies & Bosses - Enemies (1)-export_4: -567036818
+      Game Boy _ GBC - Kirby's Dream Land - Enemies & Bosses - Enemies (1)-export_40: 1763999150
+      Game Boy _ GBC - Kirby's Dream Land - Enemies & Bosses - Enemies (1)-export_41: -1936407408
+      Game Boy _ GBC - Kirby's Dream Land - Enemies & Bosses - Enemies (1)-export_42: 1399686890
+      Game Boy _ GBC - Kirby's Dream Land - Enemies & Bosses - Enemies (1)-export_43: 2145741677
+      Game Boy _ GBC - Kirby's Dream Land - Enemies & Bosses - Enemies (1)-export_44: -1230591977
+      Game Boy _ GBC - Kirby's Dream Land - Enemies & Bosses - Enemies (1)-export_45: 159681745
+      Game Boy _ GBC - Kirby's Dream Land - Enemies & Bosses - Enemies (1)-export_46: -1653081374
+      Game Boy _ GBC - Kirby's Dream Land - Enemies & Bosses - Enemies (1)-export_47: -2092051102
+      Game Boy _ GBC - Kirby's Dream Land - Enemies & Bosses - Enemies (1)-export_48: -1478604812
+      Game Boy _ GBC - Kirby's Dream Land - Enemies & Bosses - Enemies (1)-export_49: 1094417178
+      Game Boy _ GBC - Kirby's Dream Land - Enemies & Bosses - Enemies (1)-export_5: 531596196
+      Game Boy _ GBC - Kirby's Dream Land - Enemies & Bosses - Enemies (1)-export_50: -679111388
+      Game Boy _ GBC - Kirby's Dream Land - Enemies & Bosses - Enemies (1)-export_51: 142151551
+      Game Boy _ GBC - Kirby's Dream Land - Enemies & Bosses - Enemies (1)-export_52: -409775950
+      Game Boy _ GBC - Kirby's Dream Land - Enemies & Bosses - Enemies (1)-export_53: 474128792
+      Game Boy _ GBC - Kirby's Dream Land - Enemies & Bosses - Enemies (1)-export_54: 1729681489
+      Game Boy _ GBC - Kirby's Dream Land - Enemies & Bosses - Enemies (1)-export_55: 967327107
+      Game Boy _ GBC - Kirby's Dream Land - Enemies & Bosses - Enemies (1)-export_56: -1371180690
+      Game Boy _ GBC - Kirby's Dream Land - Enemies & Bosses - Enemies (1)-export_57: -2029900676
+      Game Boy _ GBC - Kirby's Dream Land - Enemies & Bosses - Enemies (1)-export_58: 788550333
+      Game Boy _ GBC - Kirby's Dream Land - Enemies & Bosses - Enemies (1)-export_59: -1216815735
+      Game Boy _ GBC - Kirby's Dream Land - Enemies & Bosses - Enemies (1)-export_6: 1010617587
+      Game Boy _ GBC - Kirby's Dream Land - Enemies & Bosses - Enemies (1)-export_60: 1545629807
+      Game Boy _ GBC - Kirby's Dream Land - Enemies & Bosses - Enemies (1)-export_61: -278755940
+      Game Boy _ GBC - Kirby's Dream Land - Enemies & Bosses - Enemies (1)-export_62: -595680179
+      Game Boy _ GBC - Kirby's Dream Land - Enemies & Bosses - Enemies (1)-export_63: -737471637
+      Game Boy _ GBC - Kirby's Dream Land - Enemies & Bosses - Enemies (1)-export_64: -1500880479
+      Game Boy _ GBC - Kirby's Dream Land - Enemies & Bosses - Enemies (1)-export_65: 1849211632
+      Game Boy _ GBC - Kirby's Dream Land - Enemies & Bosses - Enemies (1)-export_66: -2074675391
+      Game Boy _ GBC - Kirby's Dream Land - Enemies & Bosses - Enemies (1)-export_67: 759942455
+      Game Boy _ GBC - Kirby's Dream Land - Enemies & Bosses - Enemies (1)-export_68: 1232411980
+      Game Boy _ GBC - Kirby's Dream Land - Enemies & Bosses - Enemies (1)-export_69: 996311972
+      Game Boy _ GBC - Kirby's Dream Land - Enemies & Bosses - Enemies (1)-export_7: -1212480700
+      Game Boy _ GBC - Kirby's Dream Land - Enemies & Bosses - Enemies (1)-export_70: 103233374
+      Game Boy _ GBC - Kirby's Dream Land - Enemies & Bosses - Enemies (1)-export_71: -1801903565
+      Game Boy _ GBC - Kirby's Dream Land - Enemies & Bosses - Enemies (1)-export_72: 1659167902
+      Game Boy _ GBC - Kirby's Dream Land - Enemies & Bosses - Enemies (1)-export_73: -308964525
+      Game Boy _ GBC - Kirby's Dream Land - Enemies & Bosses - Enemies (1)-export_74: -1277829288
+      Game Boy _ GBC - Kirby's Dream Land - Enemies & Bosses - Enemies (1)-export_75: 583711493
+      Game Boy _ GBC - Kirby's Dream Land - Enemies & Bosses - Enemies (1)-export_76: 1270436189
+      Game Boy _ GBC - Kirby's Dream Land - Enemies & Bosses - Enemies (1)-export_77: 1368883719
+      Game Boy _ GBC - Kirby's Dream Land - Enemies & Bosses - Enemies (1)-export_78: -2086189262
+      Game Boy _ GBC - Kirby's Dream Land - Enemies & Bosses - Enemies (1)-export_8: -1117545460
+      Game Boy _ GBC - Kirby's Dream Land - Enemies & Bosses - Enemies (1)-export_9: -1070883107
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

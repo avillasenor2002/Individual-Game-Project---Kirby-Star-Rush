@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Tilemaps;
@@ -18,12 +17,25 @@ public class TilemapTimer : MonoBehaviour
 
     private void Awake()
     {
+        // Auto-find the "Timer" tilemap if missing
+        if (timerTilemap == null)
+        {
+            FindTimerTilemap();
+        }
+
         currentTime = Mathf.Clamp(startTime, 0, 9999);
         UpdateTilemapDisplay();
     }
 
     private void Update()
     {
+        if (timerTilemap == null)
+        {
+            FindTimerTilemap(); // keep trying to find it if it was deleted/reloaded
+            if (timerTilemap == null)
+                return; // stop if still not found
+        }
+
         if (countingDown)
         {
             currentTime -= Time.deltaTime;
@@ -40,10 +52,11 @@ public class TilemapTimer : MonoBehaviour
 
     private void UpdateTilemapDisplay()
     {
-        int timeInt = Mathf.FloorToInt(currentTime);
+        if (timerTilemap == null || numberTiles == null || numberTiles.Count < 10)
+            return;
 
-        // Ensure 4 digits
-        string timeString = timeInt.ToString("0000");
+        int timeInt = Mathf.FloorToInt(currentTime);
+        string timeString = timeInt.ToString("0000"); // ensure 4 digits
 
         // Clear previous tiles
         for (int i = 0; i < 4; i++)
@@ -52,7 +65,7 @@ public class TilemapTimer : MonoBehaviour
             timerTilemap.SetTile(cellPos, null);
         }
 
-        // Set new tiles
+        // Set new digit tiles
         for (int i = 0; i < 4; i++)
         {
             int digit = int.Parse(timeString[i].ToString());
@@ -65,21 +78,34 @@ public class TilemapTimer : MonoBehaviour
     }
 
     /// <summary>
-    /// Set the timer to a specific value
+    /// Finds a Tilemap named "Timer" in the scene.
     /// </summary>
+    private void FindTimerTilemap()
+    {
+        Tilemap[] allTilemaps = FindObjectsOfType<Tilemap>();
+        foreach (Tilemap map in allTilemaps)
+        {
+            if (map.gameObject.name == "Timer")
+            {
+                timerTilemap = map;
+                Debug.Log("[TilemapTimer] Found and assigned Tilemap: Timer");
+                return;
+            }
+        }
+
+        Debug.LogWarning("[TilemapTimer] Could not find a Tilemap named 'Timer' in the scene.");
+    }
+
+    /// <summary>Set the timer to a specific value.</summary>
     public void SetTime(float newTime)
     {
         currentTime = Mathf.Clamp(newTime, 0, 9999);
         UpdateTilemapDisplay();
     }
 
-    /// <summary>
-    /// Start counting down
-    /// </summary>
+    /// <summary>Start counting down.</summary>
     public void StartCountdown() => countingDown = true;
 
-    /// <summary>
-    /// Stop the timer
-    /// </summary>
+    /// <summary>Stop the timer.</summary>
     public void StopTimer() => countingDown = false;
 }
