@@ -10,7 +10,7 @@ public class KirbyInputSender : MonoBehaviour
     private KirbyInhale inhaleComp;
 
     [Header("Input Action References")]
-    [SerializeField] private InputActionReference movementAction;
+    [SerializeField] public InputActionReference movementAction;
     [SerializeField] private InputActionReference jumpAction;
     [SerializeField] private InputActionReference specialAction;
 

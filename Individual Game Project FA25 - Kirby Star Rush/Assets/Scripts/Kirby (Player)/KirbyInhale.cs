@@ -29,7 +29,7 @@ public class KirbyInhale : MonoBehaviour
     private bool isInhaling = false;
     private bool inhaleLocked = false;
     private bool mouthfull = false;
-    private BasicObject currentInhaleTarget = null;
+    private Component currentInhaleTarget = null; // ✅ Changed to Component
     private List<Collider2D> disabledColliders = new List<Collider2D>();
     private Transform kirbyCenter;
     private float inhaleStartTime = 0f;
@@ -38,6 +38,9 @@ public class KirbyInhale : MonoBehaviour
     [Header("Spit Projectile")]
     [SerializeField] private GameObject spitProjectilePrefab;
     [SerializeField] private Vector3 spitOffset = new Vector3(0.5f, 0f, 0f);
+
+    [Header("Spit Sound")]
+    [SerializeField] private AudioClip spitSound;
 
     private void Awake()
     {
@@ -71,7 +74,6 @@ public class KirbyInhale : MonoBehaviour
         if (controller != null)
             controller.canFloat = !(isInhaling || mouthfull);
 
-        // Ensure hitboxes always match state
         if (activeCollider != null)
             activeCollider.enabled = isInhaling || mouthfull;
         if (inactiveCollider != null)
@@ -125,7 +127,9 @@ public class KirbyInhale : MonoBehaviour
             controller.canFloat = true;
         }
 
-        // Spawn projectile when spitting
+        if (spitSound != null && audioSource != null)
+            audioSource.PlayOneShot(spitSound);
+
         if (spitProjectilePrefab != null && controller != null)
         {
             Vector3 spawnPos = transform.position + (controller.isFacingRight ? spitOffset : new Vector3(-spitOffset.x, spitOffset.y, spitOffset.z));
@@ -158,7 +162,6 @@ public class KirbyInhale : MonoBehaviour
     {
         isInhaling = false;
 
-        // activeCollider remains enabled if mouthfull
         activeCollider.enabled = mouthfull;
         inactiveCollider.enabled = !mouthfull;
 
@@ -180,7 +183,12 @@ public class KirbyInhale : MonoBehaviour
         if (currentInhaleTarget != null)
         {
             RestoreDisabledColliders();
-            currentInhaleTarget.StopBeingInhaled();
+
+            // ✅ Handle both BasicObject and Enemy
+            if (currentInhaleTarget is BasicObject bo)
+                bo.StopBeingInhaled();
+            else if (currentInhaleTarget is Enemy en)
+                en.StopBeingInhaled();
         }
 
         currentInhaleTarget = null;
@@ -203,28 +211,34 @@ public class KirbyInhale : MonoBehaviour
             int found = inhaleCollider.OverlapCollider(filter, hits);
             if (found > 0)
             {
-                BasicObject closest = null;
+                Component closest = null;
                 float minDist = float.MaxValue;
                 Vector3 centerPos = kirbyCenter != null ? kirbyCenter.position : transform.position;
 
                 foreach (var hit in hits)
                 {
                     if (hit == null) continue;
-                    BasicObject obj = hit.GetComponent<BasicObject>();
-                    if (obj == null || obj.isBeingInhaled) continue;
 
-                    float d = Vector3.Distance(centerPos, obj.transform.position);
+                    BasicObject bo = hit.GetComponent<BasicObject>();
+                    Enemy en = hit.GetComponent<Enemy>();
+                    if ((bo == null && en == null) || (bo != null && bo.isBeingInhaled) || (en != null && en.isBeingInhaled)) continue;
+
+                    float d = Vector3.Distance(centerPos, hit.transform.position);
                     if (d < minDist)
                     {
                         minDist = d;
-                        closest = obj;
+                        closest = (Component)bo ?? (Component)en;
                     }
                 }
 
                 if (closest != null)
                 {
                     currentInhaleTarget = closest;
-                    currentInhaleTarget.StartBeingInhaled();
+
+                    if (currentInhaleTarget is BasicObject bObj)
+                        bObj.StartBeingInhaled();
+                    else if (currentInhaleTarget is Enemy enemyObj)
+                        enemyObj.StartBeingInhaled();
 
                     disabledColliders.Clear();
                     foreach (var c in currentInhaleTarget.GetComponentsInChildren<Collider2D>(true))
@@ -258,7 +272,12 @@ public class KirbyInhale : MonoBehaviour
 
             if (Vector3.Distance(currentInhaleTarget.transform.position, targetPos) <= destroyDistance)
             {
-                Destroy(currentInhaleTarget.gameObject);
+                // ✅ Handle Enemy or BasicObject properly
+                if (currentInhaleTarget is BasicObject bo)
+                    Destroy(bo.gameObject);
+                else if (currentInhaleTarget is Enemy en)
+                    en.OnPulledIntoKirby();
+
                 currentInhaleTarget = null;
                 inhaleLocked = false;
                 StopInhaleInternal();

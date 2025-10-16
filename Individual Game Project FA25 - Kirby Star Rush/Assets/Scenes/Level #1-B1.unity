@@ -16330,6 +16330,7 @@ MonoBehaviour:
   mouthfullSpeedReduction: 0.7
   spitProjectilePrefab: {fileID: 5524778096627073096, guid: a64d04835105d4c42b06d5af0172b142, type: 3}
   spitOffset: {x: 0.5, y: 0, z: 0}
+  spitSound: {fileID: 8300000, guid: 35c702f47b121d64d906e89a4b4301c4, type: 3}
 --- !u!1 &525899721
 GameObject:
   m_ObjectHideFlags: 0

@@ -11,13 +11,23 @@ public class SpitProjectile : MonoBehaviour
     [Header("Rotation Settings")]
     [SerializeField] private float rotationSpeed = 360f; // degrees per second
 
+    [Header("Destroy Effects")]
+    [SerializeField] private GameObject destroyEffect; // Optional particle prefab
+    [SerializeField] private AudioClip destroySound;   // Optional sound effect
+
     private Rigidbody2D rb;
+    private AudioSource audioSource;
+    private bool isDestroying = false;
 
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
         rb.gravityScale = 0f;
-        rb.freezeRotation = true; // Rigidbody rotation frozen so we can rotate manually
+        rb.freezeRotation = true;
+
+        audioSource = GetComponent<AudioSource>();
+        if (audioSource == null)
+            audioSource = gameObject.AddComponent<AudioSource>();
     }
 
     private void Start()
@@ -27,40 +37,70 @@ public class SpitProjectile : MonoBehaviour
 
     private void Update()
     {
-        // Rotate the projectile continuously
         transform.Rotate(Vector3.forward, rotationSpeed * Time.deltaTime);
+    }
 
-        // Destroy after 5 seconds to prevent leftover objects
-        Destroy(gameObject, 5f);
+    private void HandleCollision(GameObject target)
+    {
+        if (isDestroying) return;
+
+        // Damage BasicObject
+        BasicObject destructible = target.GetComponent<BasicObject>();
+        if (destructible != null)
+            destructible.TakeDamage(1);
+
+        // Damage Enemy
+        Enemy enemy = target.GetComponent<Enemy>();
+        if (enemy != null)
+            enemy.TakeDamage(1);
+
+        DestroyProjectile();
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (((1 << collision.gameObject.layer) & collisionLayers) != 0)
-        {
-            // Try to get BasicObject component
-            BasicObject destructible = collision.gameObject.GetComponent<BasicObject>();
-            if (destructible != null)
-            {
-                destructible.TakeDamage(1);
-            }
-
-            Destroy(gameObject);
-        }
+            HandleCollision(collision.gameObject);
     }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        // Also handle trigger colliders
         if (((1 << other.gameObject.layer) & collisionLayers) != 0)
-        {
-            BasicObject destructible = other.GetComponent<BasicObject>();
-            if (destructible != null)
-            {
-                destructible.TakeDamage(1);
-            }
-
-            Destroy(gameObject);
-        }
+            HandleCollision(other.gameObject);
     }
+
+    private void DestroyProjectile()
+    {
+        if (isDestroying) return;
+        isDestroying = true;
+
+        // Spawn particle effect
+        if (destroyEffect != null)
+        {
+            GameObject effect = Instantiate(destroyEffect, transform.position, Quaternion.identity);
+            // Detach from projectile so it won't be destroyed with it
+            effect.transform.parent = null;
+
+            // If it's a particle system, ensure it auto-destroys after finishing
+            ParticleSystem ps = effect.GetComponent<ParticleSystem>();
+            if (ps != null)
+            {
+                ps.Play();
+                Destroy(effect, ps.main.duration + ps.main.startLifetime.constantMax);
+            }
+            else
+            {
+                // Fallback: destroy after 2 seconds if no ParticleSystem component
+                Destroy(effect, 2f);
+            }
+        }
+
+        // Play sound
+        if (destroySound != null && audioSource != null)
+            audioSource.PlayOneShot(destroySound);
+
+        // Destroy projectile immediately
+        Destroy(gameObject);
+    }
+
 }

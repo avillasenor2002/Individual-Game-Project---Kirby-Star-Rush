@@ -144,9 +144,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nextSceneName: 
-  objectsToKeep:
-  - {fileID: 0}
-  - {fileID: 0}
+  playerSpawnPosition: {x: 0, y: 0}
   targetTilemap: {fileID: 0}
   snapToTilemap: 1
   playerTag: Player
+  doorSound: {fileID: 8300000, guid: 7bf0830fbad57014a95f24fc8e78a85b, type: 3}

@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.Tilemaps;
 using UnityEngine.SceneManagement;
 using UnityEngine.InputSystem;
+using System.Collections;
 using System.Collections.Generic;
 
 [RequireComponent(typeof(Collider2D))]
@@ -10,7 +11,8 @@ public class Door : MonoBehaviour
 {
     [Header("Scene Settings")]
     [SerializeField] private string nextSceneName;
-    [SerializeField] private Vector2 playerSpawnPosition; // where player appears in new scene
+    [SerializeField] private Vector2 playerSpawnPosition;
+    [SerializeField] private AudioClip doorSound;
 
     [Header("Tilemap Settings")]
     [SerializeField] private Tilemap targetTilemap;
@@ -22,6 +24,7 @@ public class Door : MonoBehaviour
     private bool playerInRange = false;
     private bool playerJustSpawned = false;
     private GameObject playerRef;
+    private KirbyInputSender inputSender;
 
     private static Vector2? spawnPositionNextScene = null;
 
@@ -60,20 +63,18 @@ public class Door : MonoBehaviour
         if (!Application.isPlaying || !playerInRange || playerRef == null || playerJustSpawned)
             return;
 
-        // Detect "up" input from any source
-        bool upInput = false;
-
-        if (Keyboard.current != null)
-            upInput |= Keyboard.current.wKey.wasPressedThisFrame || Keyboard.current.upArrowKey.wasPressedThisFrame;
-
-        if (Gamepad.current != null)
+        // Get input from KirbyInputSender (new Input System)
+        if (inputSender != null && inputSender.movementAction != null)
         {
-            Vector2 stick = Gamepad.current.leftStick.ReadValue();
-            upInput |= stick.y > 0.5f || Gamepad.current.dpad.up.wasPressedThisFrame;
-        }
+            Vector2 moveInput = inputSender.movementAction.action.ReadValue<Vector2>();
 
-        if (upInput)
-            LoadNextScene();
+            // Check if pressing up
+            if (moveInput.y > 0.5f)
+            {
+                StartCoroutine(TransitionSequence());
+                return;
+            }
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -82,6 +83,7 @@ public class Door : MonoBehaviour
         {
             playerInRange = true;
             playerRef = other.gameObject;
+            inputSender = playerRef.GetComponent<KirbyInputSender>();
 
             if (playerJustSpawned)
                 playerJustSpawned = false;
@@ -94,36 +96,41 @@ public class Door : MonoBehaviour
         {
             playerInRange = false;
             playerRef = null;
+            inputSender = null;
         }
     }
 
-    private void LoadNextScene()
+    private IEnumerator TransitionSequence()
     {
-        // Maintain all objects with tag "Constant"
+        // Maintain all "Constant" objects
         GameObject[] constants = GameObject.FindGameObjectsWithTag("Constant");
         foreach (GameObject obj in constants)
-        {
             DontDestroyOnLoad(obj);
-        }
 
-        // Set spawn position for next scene
+        // Play door sound
+        if (doorSound != null)
+            AudioSource.PlayClipAtPoint(doorSound, transform.position);
+
+        // Fade out
+        if (SceneFader.Instance != null)
+            yield return SceneFader.Instance.FadeOut();
+
+        // Set next spawn position and load scene
         spawnPositionNextScene = playerSpawnPosition;
-
         SceneManager.LoadScene(nextSceneName);
     }
 
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        // Remove duplicate "Constant" objects in new scene
+        // Remove duplicate "Constant" objects
         GameObject[] constants = GameObject.FindGameObjectsWithTag("Constant");
+        var seen = new HashSet<string>();
         foreach (GameObject obj in constants)
         {
-            if (obj.scene.name == scene.name) continue; // skip newly created objects
-            foreach (GameObject other in GameObject.FindGameObjectsWithTag("Constant"))
-            {
-                if (other != obj && other.name == obj.name)
-                    Destroy(other);
-            }
+            if (seen.Contains(obj.name))
+                Destroy(obj);
+            else
+                seen.Add(obj.name);
         }
 
         // Teleport player only when entering via a door
@@ -134,7 +141,7 @@ public class Door : MonoBehaviour
             {
                 player.transform.position = spawnPositionNextScene.Value;
 
-                // Lock doors near player to prevent instant re-trigger
+                // Lock doors near player
                 Door[] allDoors = FindObjectsOfType<Door>();
                 foreach (Door d in allDoors)
                 {
@@ -146,6 +153,10 @@ public class Door : MonoBehaviour
 
             spawnPositionNextScene = null;
         }
+
+        // Fade back in
+        if (SceneFader.Instance != null)
+            SceneFader.Instance.StartCoroutine(SceneFader.Instance.FadeIn());
     }
 
     private void SnapToTilemap()

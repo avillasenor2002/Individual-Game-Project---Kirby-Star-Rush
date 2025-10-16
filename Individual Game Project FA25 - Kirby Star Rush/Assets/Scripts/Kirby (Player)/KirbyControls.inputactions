@@ -234,17 +234,6 @@
                 },
                 {
                     "name": "",
-                    "id": "fa7a2847-fde7-4651-9498-cb7c9aed0b99",
-                    "path": "<Keyboard>/w",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Jump",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
                     "id": "b752cced-e0bb-424e-88a6-94b91ffdbb58",
                     "path": "<Joystick>/trigger",
                     "interactions": "",
