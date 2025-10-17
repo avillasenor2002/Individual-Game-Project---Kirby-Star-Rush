@@ -1,4 +1,4 @@
-using UnityEngine;
+﻿using UnityEngine;
 
 [CreateAssetMenu(fileName = "BasicFlightBehavior", menuName = "Enemy/Behaviors/Basic Flight")]
 public class BasicFlightBehavior : EnemyBehavior
@@ -13,6 +13,10 @@ public class BasicFlightBehavior : EnemyBehavior
     public override void Execute(Enemy enemy)
     {
         if (enemy == null || enemy.isBeingInhaled || enemy.isDead) return;
+
+        // ✅ Only run this behavior if the enemy is visible on the player's screen
+        Renderer renderer = enemy.GetComponentInChildren<Renderer>();
+        if (renderer == null || !renderer.isVisible) return;
 
         // Initialize random bob offset so enemies don't bob perfectly in sync
         if (bobOffset == 0f)

@@ -362,12 +362,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75154e8b509da8a4da751d77e79bb93e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxSpeed: 10.5
-  floatMaxSpeed: 5.5
+  maxSpeed: 11
+  floatMaxSpeed: 6.5
   acceleration: 2.5
-  deceleration: 5
+  deceleration: 4
   jumpForce: 1200
-  puffForce: 500
+  puffForce: 600
   floatFallSpeed: 0.65
   maxFallSpeed: -10
   groundMask:
@@ -434,8 +434,8 @@ MonoBehaviour:
   inhaleParticles: {fileID: 3501190313236495984}
   inhaleSound: {fileID: 8300000, guid: 9b201a55675eefb4d879cd9b7e0a9dd8, type: 3}
   audioSource: {fileID: 2715946839465028834}
-  inhaleSpeedReduction: 0.3
-  mouthfullSpeedReduction: 0.7
+  inhaleSpeedReduction: 0.5
+  mouthfullSpeedReduction: 0.8
   spitProjectilePrefab: {fileID: 5524778096627073096, guid: a64d04835105d4c42b06d5af0172b142, type: 3}
   spitOffset: {x: 0.5, y: 0, z: 0}
   spitSound: {fileID: 8300000, guid: 35c702f47b121d64d906e89a4b4301c4, type: 3}

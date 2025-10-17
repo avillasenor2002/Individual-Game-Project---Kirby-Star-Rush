@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 601ecd255553ead458d863cae09bd177, type: 3}
   m_Name: BrontoBurtBehavior
   m_EditorClassIdentifier: 
-  triggerRadius: 8
-  riseSpeed: 2
+  triggerRadius: 6.5
+  riseSpeed: 6
   flightBehavior: {fileID: 11400000, guid: aa1f705b0d7f0b44ba548745e3f46a63, type: 2}

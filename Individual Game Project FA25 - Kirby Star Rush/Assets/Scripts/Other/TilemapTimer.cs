@@ -108,4 +108,11 @@ public class TilemapTimer : MonoBehaviour
 
     /// <summary>Stop the timer.</summary>
     public void StopTimer() => countingDown = false;
+
+    public void AddTime(float amount)
+    {
+        currentTime = Mathf.Clamp(currentTime + amount, 0, 9999);
+        UpdateTilemapDisplay();
+    }
+
 }

@@ -1,4 +1,4 @@
-using UnityEngine;
+﻿using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody2D), typeof(Collider2D))]
 public class SpitProjectile : MonoBehaviour
@@ -11,6 +11,9 @@ public class SpitProjectile : MonoBehaviour
     [Header("Rotation Settings")]
     [SerializeField] private float rotationSpeed = 360f; // degrees per second
 
+    [Header("Timer Bonus")]
+    [SerializeField] private float timeBonus = 5f; // seconds to add when hitting an enemy
+
     [Header("Destroy Effects")]
     [SerializeField] private GameObject destroyEffect; // Optional particle prefab
     [SerializeField] private AudioClip destroySound;   // Optional sound effect
@@ -18,6 +21,8 @@ public class SpitProjectile : MonoBehaviour
     private Rigidbody2D rb;
     private AudioSource audioSource;
     private bool isDestroying = false;
+
+    private TilemapTimer timer; // Reference to the global timer
 
     private void Awake()
     {
@@ -28,6 +33,9 @@ public class SpitProjectile : MonoBehaviour
         audioSource = GetComponent<AudioSource>();
         if (audioSource == null)
             audioSource = gameObject.AddComponent<AudioSource>();
+
+        // Find timer automatically
+        timer = FindObjectOfType<TilemapTimer>();
     }
 
     private void Start()
@@ -52,7 +60,13 @@ public class SpitProjectile : MonoBehaviour
         // Damage Enemy
         Enemy enemy = target.GetComponent<Enemy>();
         if (enemy != null)
+        {
             enemy.TakeDamage(1);
+
+            // ✅ Add time to the timer when hitting an enemy
+            if (timer != null)
+                timer.AddTime(timeBonus);
+        }
 
         DestroyProjectile();
     }
@@ -78,10 +92,8 @@ public class SpitProjectile : MonoBehaviour
         if (destroyEffect != null)
         {
             GameObject effect = Instantiate(destroyEffect, transform.position, Quaternion.identity);
-            // Detach from projectile so it won't be destroyed with it
             effect.transform.parent = null;
 
-            // If it's a particle system, ensure it auto-destroys after finishing
             ParticleSystem ps = effect.GetComponent<ParticleSystem>();
             if (ps != null)
             {
@@ -90,7 +102,6 @@ public class SpitProjectile : MonoBehaviour
             }
             else
             {
-                // Fallback: destroy after 2 seconds if no ParticleSystem component
                 Destroy(effect, 2f);
             }
         }
@@ -99,8 +110,6 @@ public class SpitProjectile : MonoBehaviour
         if (destroySound != null && audioSource != null)
             audioSource.PlayOneShot(destroySound);
 
-        // Destroy projectile immediately
         Destroy(gameObject);
     }
-
 }
