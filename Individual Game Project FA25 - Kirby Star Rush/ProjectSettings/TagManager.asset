@@ -7,6 +7,7 @@ TagManager:
   - Ground
   - Inhale
   - Constant
+  - HP
   layers:
   - Default
   - TransparentFX

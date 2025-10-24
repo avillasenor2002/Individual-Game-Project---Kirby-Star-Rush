@@ -261,6 +261,7 @@ GameObject:
   - component: {fileID: 5617598838778979492}
   - component: {fileID: 760267656279290617}
   - component: {fileID: 2515379685764565186}
+  - component: {fileID: 3173437821133893269}
   - component: {fileID: 2868701948298902019}
   - component: {fileID: 8338880569850584095}
   - component: {fileID: 3793458639594436029}
@@ -455,6 +456,25 @@ MonoBehaviour:
   movementAction: {fileID: 6896935705038279666, guid: 45042936c1af3de4ea996e1a056eb304, type: 3}
   jumpAction: {fileID: -854248601627700822, guid: 45042936c1af3de4ea996e1a056eb304, type: 3}
   specialAction: {fileID: 2886739091561361936, guid: 45042936c1af3de4ea996e1a056eb304, type: 3}
+--- !u!114 &3173437821133893269
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 767834633010586895}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5ac5dd3e28e3bdb4fa3b52c8170c9413, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHP: 6
+  currentHP: 6
+  invincibilityDuration: 1
+  flickerSpeed: 0.1
+  knockbackForce: 20
+  damageSound: {fileID: 8300000, guid: d1745234deda3cb4a9a49dd06521f849, type: 3}
+  damageVolume: 0.8
 --- !u!50 &2868701948298902019
 Rigidbody2D:
   serializedVersion: 4

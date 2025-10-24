@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Tilemaps;
@@ -9,27 +9,52 @@ public class CameraFollow2D : MonoBehaviour
     [SerializeField] private Tilemap tilemap; // The Tilemap to determine bounds
     [SerializeField] private TileBase boundaryTile; // The tile used as the boundary marker
 
-    [SerializeField] private float smoothTime = 0.2f; // Time for normal camera follow
-    [SerializeField] private float edgeBuffer = 0.4f; // Buffer percentage of the camera's view near the edges before it starts moving
+    [SerializeField] private float smoothTime = 0.2f; // Normal smooth follow time
+    [SerializeField] private float edgeBuffer = 0.4f; // Buffer near screen edges before moving
 
     private Vector3 velocity = Vector3.zero;
     private Camera cam;
     private float leftBound, rightBound, topBound, bottomBound;
 
-    private bool firstMoveDone = false; // track if initial rapid scroll has finished
+    private bool firstMoveDone = false; // Skip normal follow until initial rapid scroll is done
+    private bool switchingTarget = false; // True when camera is moving fast to a new target
+    private float fastSmoothTime = 0.02f;  // Extremely fast follow time
 
     void Start()
     {
         cam = Camera.main;
         CalculateTilemapBounds();
-
-        // Start the rapid scroll at the very beginning
         StartCoroutine(RapidScrollToTarget());
     }
 
     void LateUpdate()
     {
-        if (!firstMoveDone) return; // skip normal follow until initial rapid scroll is done
+        // --- Handle missing target ---
+        if (target == null)
+        {
+            GameObject playerObj = GameObject.FindGameObjectWithTag("Player");
+            if (playerObj != null)
+            {
+                target = playerObj.transform;
+                switchingTarget = true; // trigger fast scroll to new target
+            }
+            else
+            {
+                return; // No player in scene
+            }
+        }
+
+        if (!firstMoveDone) return; // Skip normal follow until initial rapid scroll completes
+
+        FollowTarget();
+    }
+
+    private void FollowTarget()
+    {
+        float currentSmoothTime = smoothTime;
+
+        if (switchingTarget)
+            currentSmoothTime = fastSmoothTime; // use extremely fast scroll
 
         Vector3 targetPosition = target.position;
         Vector3 viewportPosition = cam.WorldToViewportPoint(targetPosition);
@@ -52,7 +77,13 @@ public class CameraFollow2D : MonoBehaviour
         float clampedY = Mathf.Clamp(desiredPosition.y, bottomBound + cameraHalfHeight, topBound - cameraHalfHeight);
 
         Vector3 clampedPosition = new Vector3(clampedX, clampedY, transform.position.z);
-        transform.position = Vector3.SmoothDamp(transform.position, clampedPosition, ref velocity, smoothTime);
+        transform.position = Vector3.SmoothDamp(transform.position, clampedPosition, ref velocity, currentSmoothTime);
+
+        // If we are close enough to the new target, restore normal smoothTime
+        if (switchingTarget && Vector3.Distance(transform.position, clampedPosition) < 0.01f)
+        {
+            switchingTarget = false;
+        }
     }
 
     private void CalculateTilemapBounds()
@@ -100,11 +131,19 @@ public class CameraFollow2D : MonoBehaviour
         topBound -= tileSize;
     }
 
-    // ---------------------- Rapid scroll coroutine ----------------------
     private IEnumerator RapidScrollToTarget()
     {
+        if (target == null)
+        {
+            GameObject playerObj = GameObject.FindGameObjectWithTag("Player");
+            if (playerObj != null)
+                target = playerObj.transform;
+        }
+
+        if (target == null) yield break;
+
         float elapsed = 0f;
-        float rapidTime = 0.05f; // VERY FAST scroll duration (adjustable)
+        float rapidTime = 0.05f; // VERY FAST scroll
         Vector3 startPos = transform.position;
 
         float cameraHalfWidth = cam.orthographicSize * cam.aspect;
@@ -119,11 +158,11 @@ public class CameraFollow2D : MonoBehaviour
         while (elapsed < rapidTime)
         {
             transform.position = Vector3.Lerp(startPos, targetPos, elapsed / rapidTime);
-            elapsed += Time.unscaledDeltaTime; // unscaled so not affected by time scale
+            elapsed += Time.unscaledDeltaTime;
             yield return null;
         }
 
         transform.position = targetPos;
-        firstMoveDone = true; // enable normal camera follow
+        firstMoveDone = true;
     }
 }
