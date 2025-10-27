@@ -2,6 +2,7 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
+using UnityEngine.SceneManagement;
 
 public class LevelEndManager : MonoBehaviour
 {
@@ -12,20 +13,24 @@ public class LevelEndManager : MonoBehaviour
 
     [Header("Audio")]
     [SerializeField] private AudioSource musicSource;
-    [SerializeField] private AudioClip endMusic;      // First one-time track
-    [SerializeField] private AudioClip loopingMusic;  // Second looping track
+    [SerializeField] private AudioClip endMusic;
+    [SerializeField] private AudioClip loopingMusic;
 
     [Header("Slow Motion Settings")]
     [SerializeField] private float slowTimeScale = 0.3f;
     [SerializeField] private float slowDuration = 2f;
+    [SerializeField] private bool useTimeEffects = true;
 
     [Header("Game Over")]
-    [SerializeField] private GameObject gameOverUIRoot; // Game Over screen root
-    [SerializeField] private AudioClip gameOverMusic;   // Unique Game Over track
+    [SerializeField] private GameObject gameOverUIRoot;
+    [SerializeField] private AudioClip gameOverMusic;
 
     [Header("UI Navigation")]
     [SerializeField] private GameObject gameOverFirstSelected;
     [SerializeField] private GameObject levelEndFirstSelected;
+
+    [Header("Scene Settings")]
+    [SerializeField] private string nextSceneName;
 
     private Image rootImage;
     private Image[] childImages;
@@ -41,7 +46,6 @@ public class LevelEndManager : MonoBehaviour
             childImages = endUIRoot.GetComponentsInChildren<Image>(true);
             childTexts = endUIRoot.GetComponentsInChildren<Text>(true);
 
-            // Exclude root image from children array
             childImages = System.Array.FindAll(childImages, img => img != rootImage);
         }
     }
@@ -68,53 +72,28 @@ public class LevelEndManager : MonoBehaviour
             musicSource.Play();
         }
 
-        Time.timeScale = slowTimeScale;
+        if (useTimeEffects)
+            Time.timeScale = slowTimeScale;
+
         yield return new WaitForSecondsRealtime(slowDuration);
 
         if (gameOverUIRoot != null)
         {
             gameOverUIRoot.SetActive(true);
-            Image[] uiImages = gameOverUIRoot.GetComponentsInChildren<Image>(true);
-            Text[] uiTexts = gameOverUIRoot.GetComponentsInChildren<Text>(true);
-
-            float elapsed = 0f;
-            while (elapsed < fadeDuration)
-            {
-                elapsed += Time.unscaledDeltaTime;
-                float alpha = Mathf.Lerp(0f, maxOpacity, elapsed / fadeDuration);
-
-                foreach (var img in uiImages)
-                {
-                    Color c = img.color;
-                    c.a = alpha;
-                    img.color = c;
-                }
-
-                foreach (var txt in uiTexts)
-                {
-                    Color c = txt.color;
-                    c.a = alpha;
-                    txt.color = c;
-                }
-
-                yield return null;
-            }
+            yield return StartCoroutine(FadeUI(gameOverUIRoot));
         }
 
-        Time.timeScale = 0f;
+        // Reset time before scene load
+        Time.timeScale = 1f;
 
-        if (gameOverFirstSelected != null)
-        {
-            EventSystem.current.SetSelectedGameObject(null);
-            EventSystem.current.SetSelectedGameObject(gameOverFirstSelected);
-        }
+        if (!string.IsNullOrEmpty(nextSceneName))
+            SceneManager.LoadScene(nextSceneName);
     }
 
     private IEnumerator HandleLevelEndSequence()
     {
         MuteAllOtherAudioSources();
 
-        // Start end music (non-looping)
         if (musicSource != null && endMusic != null)
         {
             musicSource.loop = false;
@@ -123,71 +102,65 @@ public class LevelEndManager : MonoBehaviour
             musicSource.Play();
         }
 
-        // Apply slow motion
-        Time.timeScale = slowTimeScale;
-        yield return new WaitForSecondsRealtime(slowDuration); // Unaffected by time scale
+        if (useTimeEffects)
+            Time.timeScale = slowTimeScale;
 
-        // Begin UI fade-in
+        yield return new WaitForSecondsRealtime(slowDuration);
+
         if (endUIRoot != null)
         {
             endUIRoot.SetActive(true);
-            yield return StartCoroutine(FadeInUI());
+            yield return StartCoroutine(FadeUI(endUIRoot));
         }
 
-        // Freeze gameplay
-        Time.timeScale = 0f;
+        // Reset time before scene load
+        Time.timeScale = 1f;
 
-        // Wait for the first music clip to finish playing
-        if (musicSource != null && loopingMusic != null)
-        {
-            while (musicSource.isPlaying)
-            {
-                yield return null;
-            }
-
-            musicSource.loop = true;
-            musicSource.clip = loopingMusic;
-            musicSource.Play();
-        }
-
-        if (levelEndFirstSelected != null)
-        {
-            EventSystem.current.SetSelectedGameObject(null);
-            EventSystem.current.SetSelectedGameObject(levelEndFirstSelected);
-        }
+        // Load the next scene
+        if (!string.IsNullOrEmpty(nextSceneName))
+            SceneManager.LoadScene(nextSceneName);
     }
 
-    private IEnumerator FadeInUI()
+    private IEnumerator FadeUI(GameObject uiRoot)
     {
-        float elapsed = 0f;
+        Image[] images = uiRoot.GetComponentsInChildren<Image>(true);
+        Text[] texts = uiRoot.GetComponentsInChildren<Text>(true);
 
+        float elapsed = 0f;
         while (elapsed < fadeDuration)
         {
             elapsed += Time.unscaledDeltaTime;
             float alpha = Mathf.Lerp(0f, maxOpacity, elapsed / fadeDuration);
 
-            if (rootImage != null)
+            foreach (var img in images)
             {
-                Color bgColor = rootImage.color;
-                bgColor.a = alpha;
-                rootImage.color = bgColor;
+                Color c = img.color;
+                c.a = alpha;
+                img.color = c;
             }
 
-            foreach (var img in childImages)
+            foreach (var txt in texts)
             {
-                Color color = img.color;
-                color.a = alpha;
-                img.color = color;
-            }
-
-            foreach (var txt in childTexts)
-            {
-                Color color = txt.color;
-                color.a = alpha;
-                txt.color = color;
+                Color c = txt.color;
+                c.a = alpha;
+                txt.color = c;
             }
 
             yield return null;
+        }
+
+        // Ensure final alpha
+        foreach (var img in images)
+        {
+            Color c = img.color;
+            c.a = maxOpacity;
+            img.color = c;
+        }
+        foreach (var txt in texts)
+        {
+            Color c = txt.color;
+            c.a = maxOpacity;
+            txt.color = c;
         }
     }
 
@@ -197,9 +170,7 @@ public class LevelEndManager : MonoBehaviour
         foreach (AudioSource source in allSources)
         {
             if (source != null && source != musicSource)
-            {
                 source.mute = true;
-            }
         }
     }
 }

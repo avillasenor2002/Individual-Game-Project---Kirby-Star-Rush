@@ -8,6 +8,7 @@ TagManager:
   - Inhale
   - Constant
   - HP
+  - Spawn
   layers:
   - Default
   - TransparentFX
