@@ -1,4 +1,4 @@
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.Tilemaps;
 using UnityEngine.SceneManagement;
 using UnityEngine.InputSystem;
@@ -25,7 +25,7 @@ public class DoorStart : MonoBehaviour
     private GameObject playerRef;
     private KirbyInputSender inputSender;
 
-    // Static to remember spawn position across scenes
+    // Remember spawn position across scenes
     private static Vector2? spawnPositionNextScene = null;
 
     private void Awake()
@@ -46,13 +46,6 @@ public class DoorStart : MonoBehaviour
 
     private void Update()
     {
-#if UNITY_EDITOR
-        if (!Application.isPlaying && snapToTilemap)
-        {
-            SnapToTilemap();
-            return;
-        }
-#endif
         if (!Application.isPlaying || !playerInRange || playerRef == null || playerJustSpawned)
             return;
 
@@ -89,11 +82,19 @@ public class DoorStart : MonoBehaviour
 
     private IEnumerator TransitionSequence()
     {
-        if (playerRef == null) yield break;
+        if (playerRef == null)
+            yield break;
 
         // Play door sound
         if (doorSound != null)
             AudioSource.PlayClipAtPoint(doorSound, transform.position);
+
+        // Set global variable to mark that the level has started
+        if (GlobalVariables.Instance != null)
+        {
+            GlobalVariables.Instance.levelStart = true;
+            Debug.Log("[DoorStart] GlobalVariables.levelStart set to TRUE");
+        }
 
         // Fade out
         if (SceneFader.Instance != null)
@@ -105,13 +106,37 @@ public class DoorStart : MonoBehaviour
         // Destroy the player that entered the door
         Destroy(playerRef);
 
-        // Immediately load the next scene (everything else in old scene is destroyed)
+        // **Clear all DontDestroyOnLoad objects except GlobalVariables**
+        ClearDontDestroyOnLoadExceptGlobalVariables();
+
+        // Load the next scene
         SceneManager.LoadScene(nextSceneName);
     }
 
+    /// <summary>
+    /// Destroys all DontDestroyOnLoad objects except the singleton GlobalVariables
+    /// </summary>
+    private void ClearDontDestroyOnLoadExceptGlobalVariables()
+    {
+        GameObject[] rootObjects = SceneManager.GetActiveScene().GetRootGameObjects();
+        foreach (GameObject obj in rootObjects)
+        {
+            if (obj != GlobalVariables.Instance?.gameObject && obj.hideFlags == HideFlags.None)
+            {
+                // Check if this object is marked DontDestroyOnLoad by checking its scene
+                if (obj.scene.name == null || obj.scene.name == "")
+                {
+                    Destroy(obj);
+                    Debug.Log($"Destroyed DontDestroyOnLoad object: {obj.name}");
+                }
+            }
+        }
+    }
+
+
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        // Spawn player at new position
+        // Move player in new scene to the saved position
         if (spawnPositionNextScene.HasValue)
         {
             GameObject player = GameObject.FindWithTag(playerTag);
@@ -119,7 +144,6 @@ public class DoorStart : MonoBehaviour
             {
                 player.transform.position = spawnPositionNextScene.Value;
 
-                // Temporarily lock nearby doors
                 DoorStart[] allDoors = FindObjectsOfType<DoorStart>();
                 foreach (DoorStart d in allDoors)
                 {
@@ -131,6 +155,21 @@ public class DoorStart : MonoBehaviour
             spawnPositionNextScene = null;
         }
 
+        // Trigger any LevelStartManagers in the new scene
+        LevelStartManager[] startManagers = FindObjectsOfType<LevelStartManager>();
+        foreach (LevelStartManager manager in startManagers)
+        {
+            manager.SceneStart();
+            Debug.Log($"[{name}] Triggered SceneStart() on {manager.name}");
+        }
+
+        // Set global variable to mark that the level has started
+        if (GlobalVariables.Instance != null)
+        {
+            GlobalVariables.Instance.levelStart = true;
+            Debug.Log("[DoorStart] GlobalVariables.levelStart set to TRUE");
+        }
+
         // Fade back in
         if (SceneFader.Instance != null)
             SceneFader.Instance.StartCoroutine(SceneFader.Instance.FadeIn());
@@ -138,7 +177,8 @@ public class DoorStart : MonoBehaviour
 
     private void SnapToTilemap()
     {
-        if (targetTilemap == null) return;
+        if (targetTilemap == null)
+            return;
 
         Vector3Int cellPos = targetTilemap.WorldToCell(transform.position);
         Vector3 snappedPos = targetTilemap.GetCellCenterWorld(cellPos);

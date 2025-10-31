@@ -1521,16 +1521,14 @@ MonoBehaviour:
   fadeDuration: 1
   maxOpacity: 0.9
   musicSource: {fileID: 250139690}
-  endMusic: {fileID: 8300000, guid: e5f72df9868056642b49d84c7fa42864, type: 3}
-  loopingMusic: {fileID: 8300000, guid: 43f2ac619fede644098f12ac19eb60aa, type: 3}
+  endMusic: {fileID: 8300000, guid: 7fa61d41f1e5339478edb7e99fb5c474, type: 3}
   slowTimeScale: 0.3
   slowDuration: 2
   useTimeEffects: 1
-  gameOverUIRoot: {fileID: 500969896}
-  gameOverMusic: {fileID: 8300000, guid: 43f2ac619fede644098f12ac19eb60aa, type: 3}
-  gameOverFirstSelected: {fileID: 724876771}
-  levelEndFirstSelected: {fileID: 724876771}
   nextSceneName: Level Select
+  currentTimeText: {fileID: 102718046}
+  bestTimeText: {fileID: 49306623}
+  levelName: Level 1
 --- !u!114 &250139706
 MonoBehaviour:
   m_ObjectHideFlags: 0

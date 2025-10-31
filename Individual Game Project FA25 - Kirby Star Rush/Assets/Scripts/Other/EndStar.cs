@@ -23,8 +23,8 @@ public class EndStar : MonoBehaviour
         {
             if (isLevelComplete)
                 endManager.TriggerLevelEnd();
-            else
-                endManager.TriggerGameOver();
+            /*else
+                endManager.TriggerGameOver();*/
         }
 
         // Optional: add a visual or sound effect
