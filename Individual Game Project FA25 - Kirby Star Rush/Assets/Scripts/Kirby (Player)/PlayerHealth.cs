@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 [RequireComponent(typeof(Rigidbody2D), typeof(Collider2D))]
 public class PlayerHealth : MonoBehaviour
@@ -18,22 +19,33 @@ public class PlayerHealth : MonoBehaviour
     public AudioClip damageSound;
     public float damageVolume = 0.8f;
 
-    [Header("References")]
+    [Header("Death Sequence Settings")]
+    public AudioClip deathSound;
+    public AudioClip postDeathSound;
+    public float deathShakeIntensity = 0.5f;
+    public float deathShakeDuration = 0.5f;
+    public float postDeathDelay = 1.2f;
+    public GameObject deadPlayerPrefab;
+
+    [Header("Scene Reload Settings")]
+    [Tooltip("If left empty, reloads the current scene on death.")]
+    public string sceneToLoadOnDeath = "";
+
     private HPDisplay hpDisplay;
     private SpriteRenderer spriteRenderer;
     private Rigidbody2D rb;
     private AudioSource audioSource;
-    private CameraShake cameraShake;
+    private CameraFollow2D cameraFollow;
     private Collider2D mainCollider;
 
     private bool isInvincible = false;
+    private bool isDying = false;
+    private bool positionLocked = false;
 
-    // Singleton instance
     public static PlayerHealth Instance;
 
     private void Awake()
     {
-        // Implement Singleton and persistence
         if (Instance == null)
         {
             Instance = this;
@@ -49,18 +61,13 @@ public class PlayerHealth : MonoBehaviour
         mainCollider = GetComponent<Collider2D>();
         spriteRenderer = GetComponentInChildren<SpriteRenderer>();
 
-        // Ensure we have an AudioSource
         audioSource = GetComponent<AudioSource>();
         if (audioSource == null)
             audioSource = gameObject.AddComponent<AudioSource>();
 
-        // Subscribe to sceneLoaded to refresh HPDisplay
         SceneManager.sceneLoaded += OnSceneLoaded;
-
-        // Find initial HPDisplay and CameraShake in scene
         FindSceneReferences();
 
-        // Initialize HP if first instance
         if (currentHP <= 0)
             currentHP = maxHP;
     }
@@ -72,9 +79,23 @@ public class PlayerHealth : MonoBehaviour
 
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        // Refresh references when new scene loads
         FindSceneReferences();
         UpdateHPDisplay();
+
+        // Restore control only if previously locked
+        if (positionLocked)
+        {
+            positionLocked = false;
+            if (rb != null)
+            {
+                rb.isKinematic = false;
+                rb.constraints = RigidbodyConstraints2D.FreezeRotation; // Keep Z rotation locked
+            }
+            if (spriteRenderer != null)
+                spriteRenderer.enabled = true;
+            if (mainCollider != null)
+                mainCollider.enabled = true;
+        }
     }
 
     private void FindSceneReferences()
@@ -83,9 +104,9 @@ public class PlayerHealth : MonoBehaviour
         if (hpDisplay == null)
             Debug.LogWarning("[PlayerHealth] Could not find HPDisplay in scene!");
 
-        cameraShake = FindObjectOfType<CameraShake>();
-        if (cameraShake == null)
-            Debug.LogWarning("[PlayerHealth] Could not find CameraShake in scene!");
+        cameraFollow = FindObjectOfType<CameraFollow2D>();
+        if (cameraFollow == null)
+            Debug.LogWarning("[PlayerHealth] Could not find CameraFollow2D in scene!");
     }
 
     private void UpdateHPDisplay()
@@ -121,7 +142,7 @@ public class PlayerHealth : MonoBehaviour
 
     public void TakeDamage(int damage, Vector2 hitNormal)
     {
-        if (isInvincible || currentHP <= 0)
+        if (isInvincible || currentHP <= 0 || isDying)
             return;
 
         currentHP -= damage;
@@ -130,17 +151,11 @@ public class PlayerHealth : MonoBehaviour
 
         UpdateHPDisplay();
 
-        // Knockback
         rb.velocity = Vector2.zero;
         rb.AddForce(hitNormal * knockbackForce, ForceMode2D.Impulse);
 
-        // Play sound
         if (damageSound != null)
             audioSource.PlayOneShot(damageSound, damageVolume);
-
-        // Camera shake
-        if (cameraShake != null)
-            cameraShake.Shake(0.2f, 0.3f);
 
         StartCoroutine(InvincibilityRoutine());
 
@@ -155,6 +170,14 @@ public class PlayerHealth : MonoBehaviour
 
         while (elapsed < invincibilityDuration)
         {
+            // Stop flickering immediately if dying
+            if (isDying)
+            {
+                if (spriteRenderer != null)
+                    spriteRenderer.enabled = false;
+                yield break;
+            }
+
             if (spriteRenderer != null)
                 spriteRenderer.enabled = !spriteRenderer.enabled;
 
@@ -162,7 +185,7 @@ public class PlayerHealth : MonoBehaviour
             elapsed += flickerSpeed;
         }
 
-        if (spriteRenderer != null)
+        if (!isDying && spriteRenderer != null)
             spriteRenderer.enabled = true;
 
         isInvincible = false;
@@ -170,8 +193,117 @@ public class PlayerHealth : MonoBehaviour
 
     private void Die()
     {
+        if (isDying) return;
+        isDying = true;
+
         Debug.Log("[PlayerHealth] Player has died!");
-        // TODO: Add respawn or restart logic
+        StopAllCoroutines(); // stop invincibility flicker or other ongoing routines
+        if (spriteRenderer != null)
+            spriteRenderer.enabled = false; // keep hidden
+        StartCoroutine(DeathSequence());
+    }
+
+    private IEnumerator DeathSequence()
+    {
+        // Fully lock position
+        if (rb != null)
+        {
+            rb.velocity = Vector2.zero;
+            rb.isKinematic = true;
+            rb.constraints = RigidbodyConstraints2D.FreezeAll;
+        }
+
+        positionLocked = true;
+
+        if (mainCollider != null)
+            mainCollider.enabled = false;
+
+        // Mute all other sounds
+        AudioSource[] allSources = FindObjectsOfType<AudioSource>();
+        foreach (AudioSource source in allSources)
+        {
+            if (source != null && source != audioSource)
+                source.mute = true;
+        }
+
+        // Play first death sound
+        if (deathSound != null)
+            audioSource.PlayOneShot(deathSound, 1f);
+
+        // Shake camera
+        if (cameraFollow != null)
+            StartCoroutine(ShakeCamera(cameraFollow.transform, deathShakeIntensity, deathShakeDuration));
+
+        // Ensure sprite stays off during sequence
+        if (spriteRenderer != null)
+            spriteRenderer.enabled = false;
+
+        // Spawn dead prefab
+        if (deadPlayerPrefab != null)
+            Instantiate(deadPlayerPrefab, transform.position, Quaternion.identity);
+
+        // Show DEAD UI
+        Image deadImage = FindDeadUIImage();
+        if (deadImage != null)
+        {
+            Color c = deadImage.color;
+            c.a = 200f / 255f;
+            deadImage.color = c;
+        }
+
+        // Wait before post-death sound
+        yield return new WaitForSeconds(postDeathDelay);
+
+        // Play post-death sound and wait until finished
+        if (postDeathSound != null)
+        {
+            audioSource.PlayOneShot(postDeathSound, 1f);
+            yield return new WaitWhile(() => audioSource.isPlaying);
+        }
+
+        // Reload scene
+        StartCoroutine(RestartLevelAfterDeath());
+    }
+
+    private Image FindDeadUIImage()
+    {
+        Image[] allImages = FindObjectsOfType<Image>(true);
+        foreach (Image img in allImages)
+        {
+            if (img.gameObject.name == "DEAD")
+                return img;
+        }
+        return null;
+    }
+
+    private IEnumerator ShakeCamera(Transform camTransform, float intensity, float duration)
+    {
+        Vector3 originalPos = camTransform.localPosition;
+        float elapsed = 0f;
+
+        while (elapsed < duration)
+        {
+            float offsetX = Random.Range(-1f, 1f) * intensity;
+            float offsetY = Random.Range(-1f, 1f) * intensity;
+            camTransform.localPosition = originalPos + new Vector3(offsetX, offsetY, 0);
+            elapsed += Time.deltaTime;
+            yield return null;
+        }
+
+        camTransform.localPosition = originalPos;
+    }
+
+    private IEnumerator RestartLevelAfterDeath()
+    {
+        if (GlobalVariables.Instance != null)
+            GlobalVariables.Instance.levelStart = true;
+
+        string targetScene = string.IsNullOrEmpty(sceneToLoadOnDeath)
+            ? SceneManager.GetActiveScene().name
+            : sceneToLoadOnDeath;
+
+        yield return null;
+        SceneManager.LoadScene(targetScene);
     }
 
     public void Heal(int amount)

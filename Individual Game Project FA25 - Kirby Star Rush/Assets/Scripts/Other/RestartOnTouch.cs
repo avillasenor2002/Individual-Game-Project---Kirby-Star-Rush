@@ -1,5 +1,4 @@
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class RestartOnTouch : MonoBehaviour
 {
@@ -9,21 +8,39 @@ public class RestartOnTouch : MonoBehaviour
     {
         if (collision.CompareTag(playerTag))
         {
-            RestartScene();
+            KillPlayer(collision.gameObject);
         }
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.collider.CompareTag(playerTag))
+        if (collision.collider != null && collision.collider.CompareTag(playerTag))
         {
-            RestartScene();
+            KillPlayer(collision.collider.gameObject);
         }
     }
 
-    private void RestartScene()
+    private void KillPlayer(GameObject player)
     {
-        Scene currentScene = SceneManager.GetActiveScene();
-        SceneManager.LoadScene(currentScene.buildIndex);
+        if (player == null) return;
+
+        PlayerHealth playerHealth = player.GetComponent<PlayerHealth>();
+
+        if (playerHealth != null)
+        {
+            // Compute a hit normal pointing from this object to the player
+            Vector2 hitNormal = (player.transform.position - transform.position).normalized;
+            if (hitNormal == Vector2.zero) hitNormal = Vector2.up;
+
+            // Ensure we inflict enough damage to reduce HP to zero.
+            // Use the player's currentHP so normal death logic runs.
+            int damage = Mathf.Max(1, playerHealth.currentHP);
+
+            playerHealth.TakeDamage(damage, hitNormal);
+        }
+        else
+        {
+            Debug.LogWarning($"RestartOnTouch: GameObject '{player.name}' does not have a PlayerHealth component.");
+        }
     }
 }

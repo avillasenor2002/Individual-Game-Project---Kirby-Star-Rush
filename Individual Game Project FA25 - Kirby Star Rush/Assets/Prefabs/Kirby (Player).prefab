@@ -475,6 +475,7 @@ MonoBehaviour:
   knockbackForce: 20
   damageSound: {fileID: 8300000, guid: d1745234deda3cb4a9a49dd06521f849, type: 3}
   damageVolume: 0.8
+  sceneToLoadOnDeath: Level Select
 --- !u!50 &2868701948298902019
 Rigidbody2D:
   serializedVersion: 4
