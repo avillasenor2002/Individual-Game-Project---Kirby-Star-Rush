@@ -3,7 +3,9 @@ guid: 601ecd255553ead458d863cae09bd177
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - flightLeft: {fileID: 11400000, guid: aa1f705b0d7f0b44ba548745e3f46a63, type: 2}
+  - flightRight: {fileID: 11400000, guid: d5e5614a1a61be4488ab97c6a48b7e54, type: 2}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

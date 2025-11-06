@@ -1,60 +1,66 @@
 ﻿using UnityEngine;
 
-[CreateAssetMenu(fileName = "EnemyPatrolTilemapBehavior", menuName = "Enemy/Behaviors/Tilemap Patrol")]
-public class EnemyPatrolTilemapBehavior : EnemyBehavior
+[CreateAssetMenu(fileName = "EnemyPatrolBehavior", menuName = "Enemy/Behaviors/Patrol")]
+public class EnemyPatrolBehavior : EnemyBehavior
 {
     [Header("Patrol Settings")]
-    public float moveSpeed = 2f;              // Positive = right, Negative = left
-    public LayerMask collisionMask;           // Assign walls & floor layers
-
-    [Header("Check Settings")]
-    public float groundCheckDistance = 0.2f;
+    public float moveSpeed = 2f;
     public float wallCheckDistance = 0.1f;
+    public float ledgeCheckDistance = 0.2f;
 
     public override void Execute(Enemy enemy)
     {
-        if (enemy == null || enemy.isBeingInhaled) return;
+        if (enemy == null || enemy.isBeingInhaled || enemy.isDead)
+            return;
 
-        Rigidbody2D rb = enemy.GetComponent<Rigidbody2D>();
-        Collider2D col = enemy.GetComponent<Collider2D>();
-        if (rb == null || col == null) return;
-
-        rb.bodyType = RigidbodyType2D.Dynamic;
-        rb.collisionDetectionMode = CollisionDetectionMode2D.Continuous;
-
-        float dir = Mathf.Sign(moveSpeed);
-        Bounds bounds = col.bounds;
-
-        // --- GROUND CHECK ---
-        Vector2 groundCheckPos = new Vector2(bounds.center.x + dir * bounds.extents.x, bounds.min.y - 0.05f);
-        RaycastHit2D groundHit = Physics2D.Raycast(groundCheckPos, Vector2.down, groundCheckDistance, collisionMask);
-
-        // --- WALL CHECK ---
-        Vector2 wallCheckPos = new Vector2(bounds.center.x + dir * bounds.extents.x + 0.05f, bounds.center.y);
-        RaycastHit2D wallHit = Physics2D.Raycast(wallCheckPos, Vector2.right * dir, wallCheckDistance, collisionMask);
-
-        // Debug rays
-        Debug.DrawRay(groundCheckPos, Vector2.down * groundCheckDistance, Color.green);
-        Debug.DrawRay(wallCheckPos, Vector2.right * dir * wallCheckDistance, Color.red);
-
-        bool turnAround = false;
-        if (groundHit.collider == null) turnAround = true;  // No ground ahead → turn
-        if (wallHit.collider != null) turnAround = true;    // Wall ahead → turn
-
-        if (turnAround)
+        // Runtime data per enemy
+        EnemyPatrolData patrolData = enemy.GetComponent<EnemyPatrolData>();
+        if (patrolData == null)
         {
-            // Swap movement direction
-            moveSpeed *= -1f;
-
-            // Flip sprite on X axis
-            Vector3 scale = enemy.transform.localScale;
-            scale.x = Mathf.Sign(moveSpeed) * Mathf.Abs(scale.x);
-            enemy.transform.localScale = scale;
-
-            return; // skip movement this frame
+            patrolData = enemy.gameObject.AddComponent<EnemyPatrolData>();
+            patrolData.direction = 1f;
         }
 
-        // Move enemy with Rigidbody2D velocity
-        rb.velocity = new Vector2(moveSpeed, rb.velocity.y);
+        Collider2D col = enemy.GetComponent<Collider2D>();
+        if (col == null) return;
+
+        Bounds bounds = col.bounds;
+
+        // --- Wall detection ---
+        Vector2 wallOrigin = new Vector2(bounds.center.x + patrolData.direction * bounds.extents.x, bounds.center.y);
+        Collider2D[] hits = Physics2D.OverlapBoxAll(wallOrigin, new Vector2(wallCheckDistance, bounds.size.y * 0.9f), 0f);
+        bool hitWall = false;
+        foreach (var h in hits)
+        {
+            if (h != col && !h.isTrigger) // ignore self and triggers
+            {
+                hitWall = true;
+                break;
+            }
+        }
+
+        // --- Ledge detection ---
+        Vector2 ledgeOrigin = new Vector2(bounds.center.x + patrolData.direction * bounds.extents.x, bounds.min.y);
+        RaycastHit2D ledgeHit = Physics2D.Raycast(ledgeOrigin, Vector2.down, ledgeCheckDistance);
+        bool noGroundAhead = (ledgeHit.collider == null || ledgeHit.collider.isTrigger);
+
+        // --- Flip only if wall or ledge ---
+        if (hitWall || noGroundAhead)
+        {
+            patrolData.direction *= -1f;
+        }
+
+        // --- Move enemy ---
+        enemy.transform.position += new Vector3(patrolData.direction * moveSpeed * Time.fixedDeltaTime, 0f, 0f);
+
+        // --- Sprite faces movement ---
+        Vector3 scale = enemy.transform.localScale;
+        scale.x = Mathf.Abs(scale.x) * Mathf.Sign(patrolData.direction);
+        enemy.transform.localScale = scale;
+    }
+
+    public class EnemyPatrolData : MonoBehaviour
+    {
+        [HideInInspector] public float direction = 1f;
     }
 }

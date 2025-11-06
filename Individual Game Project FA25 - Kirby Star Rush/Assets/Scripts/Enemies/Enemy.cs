@@ -161,6 +161,7 @@ public class Enemy : MonoBehaviour
             SnapToTilemap();
     }
 
+
     /// <summary>
     /// Call this when Kirby pulls the enemy all the way in
     /// </summary>

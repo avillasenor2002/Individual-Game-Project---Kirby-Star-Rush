@@ -13,6 +13,10 @@ PrefabInstance:
       value: Bronto Burt Variant
       objectReference: {fileID: 0}
     - target: {fileID: 4068173595036770252, guid: 56dd473b4197a9d45a97f5a3d25bb80c, type: 3}
+      propertyPath: m_FlipX
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4068173595036770252, guid: 56dd473b4197a9d45a97f5a3d25bb80c, type: 3}
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: -507462447, guid: b220cc0fc720ca74382e1ff3417cbbfe, type: 3}
@@ -56,12 +60,46 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5712766992278564038, guid: 56dd473b4197a9d45a97f5a3d25bb80c, type: 3}
+      propertyPath: m_GravityScale
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7331636799619015575, guid: 56dd473b4197a9d45a97f5a3d25bb80c, type: 3}
       propertyPath: behavior
       value: 
       objectReference: {fileID: 11400000, guid: f46f626aaf6b5444e8ef6ddc7fbc0bfd, type: 2}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 6869995838277771616, guid: 56dd473b4197a9d45a97f5a3d25bb80c, type: 3}
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 3949836574004890087, guid: 56dd473b4197a9d45a97f5a3d25bb80c, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1532152667247062342}
   m_SourcePrefab: {fileID: 100100000, guid: 56dd473b4197a9d45a97f5a3d25bb80c, type: 3}
+--- !u!1 &5692663207853493312 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3949836574004890087, guid: 56dd473b4197a9d45a97f5a3d25bb80c, type: 3}
+  m_PrefabInstance: {fileID: 8777731629270648231}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &1532152667247062342
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5692663207853493312}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 5c11d6c71741beb42a6d9a2cc8977e19, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0

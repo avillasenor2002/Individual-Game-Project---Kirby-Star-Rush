@@ -63,7 +63,7 @@ public class SpitProjectile : MonoBehaviour
         {
             enemy.TakeDamage(1);
 
-            // ✅ Add time to the timer when hitting an enemy
+            // Add time to the timer when hitting an enemy
             if (timer != null)
                 timer.AddTime(timeBonus);
         }
@@ -73,14 +73,17 @@ public class SpitProjectile : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (((1 << collision.gameObject.layer) & collisionLayers) != 0)
+        // Only handle non-trigger collisions
+        if (!collision.collider.isTrigger && ((1 << collision.gameObject.layer) & collisionLayers) != 0)
+        {
             HandleCollision(collision.gameObject);
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (((1 << other.gameObject.layer) & collisionLayers) != 0)
-            HandleCollision(other.gameObject);
+        // Ignore all triggers
+        // Do nothing
     }
 
     private void DestroyProjectile()

@@ -10,8 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d379500b9d5adc3499563619c637a392, type: 3}
-  m_Name: Bronto - Flight
+  m_Name: Bronto - Flight Right
   m_EditorClassIdentifier: 
   flySpeed: -3
   bobAmplitude: 0.2
   bobFrequency: 2
+  wallCheckDistance: 0.1
+  obstacleMask:
+    serializedVersion: 2
+    m_Bits: 0
+  enableTurning: 1
+  enableSpriteFlip: 0
+  manualDirection: -1

@@ -16741,6 +16741,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2004748807919195282, guid: b57edd1eb76c31d4f842368f513a89b4, type: 3}
+      propertyPath: m_BodyType
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3542833136436468675, guid: b57edd1eb76c31d4f842368f513a89b4, type: 3}
       propertyPath: targetTilemap
       value: 

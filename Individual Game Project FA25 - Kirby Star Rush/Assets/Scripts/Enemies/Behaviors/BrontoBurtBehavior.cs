@@ -4,9 +4,14 @@
 public class BrontoBurtBehavior : EnemyBehavior
 {
     [Header("Trigger Settings")]
-    public float triggerRadius = 3f;         // Radius around enemy to detect player
-    public float riseSpeed = 3f;             // Vertical speed while rising
-    public EnemyBehavior flightBehavior;     // Behavior to switch to after rising
+    public float triggerRadius = 3f;         // Detection radius
+    public float riseSpeed = 3f;             // Vertical rise speed
+
+    [Header("Flight Behavior")]
+    public EnemyBehavior flightLeft;         // BasicFlightBehavior going left
+    public EnemyBehavior flightRight;        // BasicFlightBehavior going right
+
+    public LayerMask groundLayer;            // Layers considered ground to block movement
 
     private bool playerInRange = false;
     private bool isRising = false;
@@ -21,7 +26,7 @@ public class BrontoBurtBehavior : EnemyBehavior
         Vector3 enemyPos = enemy.transform.position;
         Vector3 playerPos = player.transform.position;
 
-        // Check if player is inside radius
+        // --- Check trigger radius ---
         float distance = Vector2.Distance(enemyPos, playerPos);
         if (distance <= triggerRadius)
         {
@@ -34,31 +39,45 @@ public class BrontoBurtBehavior : EnemyBehavior
         else
         {
             playerInRange = false;
-            return; // Player outside radius → do nothing
+            return;
         }
 
-        // Rising behavior: move vertically toward player's Y
+        // --- Rising ---
         if (isRising)
         {
             float step = riseSpeed * Time.fixedDeltaTime;
             float newY = Mathf.MoveTowards(enemyPos.y, playerPos.y, step);
             enemy.transform.position = new Vector3(enemyPos.x, newY, enemyPos.z);
 
-            // Switch to flight behavior when reached player's Y
-            if (Mathf.Approximately(newY, playerPos.y) && flightBehavior != null)
+            if (Mathf.Approximately(newY, playerPos.y))
             {
-                enemy.behavior = flightBehavior;
+                isRising = false;
+
+                // --- Flip sprite to face player ---
+                Vector3 scale = enemy.transform.localScale;
+                scale.x = Mathf.Sign(playerPos.x - enemyPos.x) * Mathf.Abs(scale.x);
+                enemy.transform.localScale = scale;
+
+                // --- Assign flight behavior based on player's position ---
+                if (playerPos.x < enemyPos.x && flightLeft != null)
+                    enemy.behavior = flightLeft;
+                else if (playerPos.x >= enemyPos.x && flightRight != null)
+                    enemy.behavior = flightRight;
+
+                // Set Animator float in parent
+                Animator anim = enemy.GetComponentInParent<Animator>();
+                if (anim != null)
+                    anim.SetFloat("isFlight", 1f);
             }
+
+            return; // Only rise until Y matched
         }
     }
 
 #if UNITY_EDITOR
-    // Draw radius in editor
     private void OnDrawGizmosSelected()
     {
         Enemy enemy = null;
-
-        // Draw gizmo where this behavior is active
         Enemy[] enemies = Object.FindObjectsOfType<Enemy>();
         foreach (Enemy e in enemies)
         {

@@ -10,11 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 324c52ebb2871e041bd76aaf123e5d6a, type: 3}
-  m_Name: WD - Patrol
+  m_Name: Grizzo
   m_EditorClassIdentifier: 
-  moveSpeed: 1.5
-  collisionMask:
-    serializedVersion: 2
-    m_Bits: 72
-  groundCheckDistance: 0.2
-  wallCheckDistance: 0.1
+  moveSpeed: 1
+  direction: 1
+  flipRequested: 0
