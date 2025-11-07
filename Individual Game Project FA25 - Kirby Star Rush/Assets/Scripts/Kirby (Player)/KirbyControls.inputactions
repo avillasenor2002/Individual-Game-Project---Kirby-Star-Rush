@@ -245,6 +245,17 @@
                 },
                 {
                     "name": "",
+                    "id": "e15ef92e-cf93-4489-8413-923c89f77807",
+                    "path": "<DualShockGamepad>/buttonSouth",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Jump",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "405f8881-6e07-42c7-add7-7bd0e4bf593a",
                     "path": "<Gamepad>/buttonWest",
                     "interactions": "",
@@ -269,6 +280,17 @@
                     "name": "",
                     "id": "ff47883d-fdd0-4521-9c7e-e851412f3d75",
                     "path": "<HID::Nintendo Wireless Gamepad>/button3",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "SpecialAction",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "8c45bd5d-c180-4d16-a922-e21da0615cc1",
+                    "path": "<DualShockGamepad>/buttonWest",
                     "interactions": "",
                     "processors": "",
                     "groups": "",

@@ -334,8 +334,8 @@ Tilemap:
   - first: {x: 14, y: 4, z: 0}
     second:
       serializedVersion: 2
-      m_TileIndex: 13
-      m_TileSpriteIndex: 13
+      m_TileIndex: 10
+      m_TileSpriteIndex: 10
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
@@ -344,8 +344,8 @@ Tilemap:
   - first: {x: 14, y: 5, z: 0}
     second:
       serializedVersion: 2
-      m_TileIndex: 12
-      m_TileSpriteIndex: 12
+      m_TileIndex: 10
+      m_TileSpriteIndex: 10
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
@@ -383,13 +383,13 @@ Tilemap:
     m_Data: {fileID: 0}
   - m_RefCount: 0
     m_Data: {fileID: 0}
-  - m_RefCount: 0
-    m_Data: {fileID: 0}
+  - m_RefCount: 2
+    m_Data: {fileID: 11400000, guid: 4f13e3fb2ef09d14081508abf20934a2, type: 2}
   - m_RefCount: 2
     m_Data: {fileID: 11400000, guid: 25d940c00d51cdb4682271bbd6a6dd80, type: 2}
-  - m_RefCount: 3
+  - m_RefCount: 2
     m_Data: {fileID: 11400000, guid: 89fb058ffc31c82478091af189924976, type: 2}
-  - m_RefCount: 3
+  - m_RefCount: 2
     m_Data: {fileID: 11400000, guid: 0a2ca215f7f23fb42b7fd5ae13ff779a, type: 2}
   m_TileSpriteArray:
   - m_RefCount: 0
@@ -412,13 +412,13 @@ Tilemap:
     m_Data: {fileID: 0}
   - m_RefCount: 0
     m_Data: {fileID: 0}
-  - m_RefCount: 0
-    m_Data: {fileID: 0}
+  - m_RefCount: 2
+    m_Data: {fileID: 1652709504, guid: a9e907380336c784ea7bb0bef31f63eb, type: 3}
   - m_RefCount: 2
     m_Data: {fileID: -1379804267, guid: a9e907380336c784ea7bb0bef31f63eb, type: 3}
-  - m_RefCount: 3
+  - m_RefCount: 2
     m_Data: {fileID: -672173252, guid: a9e907380336c784ea7bb0bef31f63eb, type: 3}
-  - m_RefCount: 3
+  - m_RefCount: 2
     m_Data: {fileID: 788879116, guid: a9e907380336c784ea7bb0bef31f63eb, type: 3}
   m_TileMatrixArray:
   - m_RefCount: 8
@@ -5605,7 +5605,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Time:'
+  m_text: Coming Soon!
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 98a01f45e743e954cafa750b25d37de2, type: 2}
   m_sharedMaterial: {fileID: -5010506356278351268, guid: 98a01f45e743e954cafa750b25d37de2, type: 2}
@@ -5668,7 +5668,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: -0.009513855, y: 0, z: -0.15499604, w: 0.6383339}
+  m_margin: {x: -0.6537409, y: 0, z: -0.15499604, w: 0.6383339}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -12009,7 +12009,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 2
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 98a01f45e743e954cafa750b25d37de2, type: 2}
   m_sharedMaterial: {fileID: -5010506356278351268, guid: 98a01f45e743e954cafa750b25d37de2, type: 2}
@@ -13028,8 +13028,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.8599968, y: 0.19799995}
-  m_SizeDelta: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0.8599968, y: 0.24}
+  m_SizeDelta: {x: 1, y: 0.916}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2024049998
 MonoBehaviour:
@@ -13051,7 +13051,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 00:00
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 98a01f45e743e954cafa750b25d37de2, type: 2}
   m_sharedMaterial: {fileID: -5010506356278351268, guid: 98a01f45e743e954cafa750b25d37de2, type: 2}

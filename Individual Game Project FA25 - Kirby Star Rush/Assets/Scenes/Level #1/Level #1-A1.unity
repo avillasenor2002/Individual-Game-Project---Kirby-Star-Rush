@@ -25205,6 +25205,67 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!1001 &1264798992
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1689556521750023994, guid: 35a128f54b17797489ff9e128a2709a2, type: 3}
+      propertyPath: targetTilemap
+      value: 
+      objectReference: {fileID: 607419095}
+    - target: {fileID: 4644158872323519160, guid: 35a128f54b17797489ff9e128a2709a2, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -27.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4644158872323519160, guid: 35a128f54b17797489ff9e128a2709a2, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -4.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4644158872323519160, guid: 35a128f54b17797489ff9e128a2709a2, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4644158872323519160, guid: 35a128f54b17797489ff9e128a2709a2, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4644158872323519160, guid: 35a128f54b17797489ff9e128a2709a2, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4644158872323519160, guid: 35a128f54b17797489ff9e128a2709a2, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4644158872323519160, guid: 35a128f54b17797489ff9e128a2709a2, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4644158872323519160, guid: 35a128f54b17797489ff9e128a2709a2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4644158872323519160, guid: 35a128f54b17797489ff9e128a2709a2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4644158872323519160, guid: 35a128f54b17797489ff9e128a2709a2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8503168002430302556, guid: 35a128f54b17797489ff9e128a2709a2, type: 3}
+      propertyPath: m_Name
+      value: Star Block (33)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 35a128f54b17797489ff9e128a2709a2, type: 3}
 --- !u!1 &1278315168
 GameObject:
   m_ObjectHideFlags: 0
@@ -26184,11 +26245,11 @@ GameObject:
   - component: {fileID: 1307888937}
   m_Layer: 5
   m_Name: Timer
-  m_TagString: Untagged
+  m_TagString: Constant
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1307888936
 Transform:
   m_ObjectHideFlags: 0
@@ -26737,7 +26798,7 @@ MonoBehaviour:
   goBeep: {fileID: 8300000, guid: 25e0d020d151349489e49118d345e569, type: 3}
   startPlayAudio: {fileID: 254253417}
   timerManager: {fileID: 0}
-  tilemapTimer: {fileID: 0}
+  tilemapTimer: {fileID: 1398052672}
   freezeDelay: 0.2
   fadeOutDelay: 0.2
   fadeDuration: 0.5
@@ -26752,6 +26813,7 @@ GameObject:
   - component: {fileID: 1398052673}
   - component: {fileID: 1398052672}
   - component: {fileID: 1398052674}
+  - component: {fileID: 1398052675}
   m_Layer: 0
   m_Name: Game  Manager
   m_TagString: Constant
@@ -26821,6 +26883,21 @@ MonoBehaviour:
   tileUpdateDelay: 0.05
   healTileSound: {fileID: 8300000, guid: a69bc8384b59d5a4d8c7acfb093c99cf, type: 3}
   healTileVolume: 0.8
+--- !u!114 &1398052675
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1398052671}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3e3d479fc0b56ad4f9ebc4fb6e1ad6f6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  elapsedTime: 0
+  isRunning: 0
+  currentTimeFormatted: 00:00
 --- !u!1001 &1439144237
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -30072,3 +30149,4 @@ SceneRoots:
   - {fileID: 563274429}
   - {fileID: 3219012638637040020}
   - {fileID: 2082161852}
+  - {fileID: 1264798992}
