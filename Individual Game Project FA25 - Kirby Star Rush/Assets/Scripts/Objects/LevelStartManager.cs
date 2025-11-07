@@ -11,14 +11,14 @@ public class LevelStartManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI countdownText;
 
     [Header("Audio")]
-    [SerializeField] private AudioSource sfxSource;
+    [SerializeField] private AudioSource sfxSource;         // Countdown SFX source
     [SerializeField] private AudioClip countdownBeep;
     [SerializeField] private AudioClip goBeep;
-    [SerializeField] private AudioSource startPlayAudio; // AudioSource to start after countdown
+    [SerializeField] private AudioSource startPlayAudio;    // Main background music to mute/unmute
 
     [Header("Timer")]
-    [SerializeField] private TimerManager timerManager; // Regular timer
-    [SerializeField] private TilemapTimer tilemapTimer; // Tilemap-based timer
+    [SerializeField] private TimerManager timerManager;
+    [SerializeField] private TilemapTimer tilemapTimer;
 
     [Header("Timing")]
     [SerializeField] private float freezeDelay = 0.2f;
@@ -27,17 +27,33 @@ public class LevelStartManager : MonoBehaviour
 
     private void Start()
     {
-        // Auto-find both timer types if missing
+        // Auto-locate timers
         if (timerManager == null)
             timerManager = FindObjectOfType<TimerManager>();
-
         if (tilemapTimer == null)
             tilemapTimer = FindObjectOfType<TilemapTimer>();
 
-        // --- Reset timers ---
+        ResetTimers();
+
+        // --- Only mute music, NOT SFX ---
+        if (startPlayAudio != null)
+            startPlayAudio.mute = true;
+
+        if (GlobalVariables.Instance != null && GlobalVariables.Instance.levelStart)
+        {
+            SceneStart();
+        }
+        else
+        {
+            SkipIntro();
+        }
+    }
+
+    private void ResetTimers()
+    {
         if (timerManager != null)
         {
-            timerManager.StopAllCoroutines(); // stop previous timers
+            timerManager.StopAllCoroutines();
             typeof(TimerManager)
                 .GetField("elapsedTime", System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance)
                 ?.SetValue(timerManager, 0f);
@@ -51,18 +67,6 @@ public class LevelStartManager : MonoBehaviour
             tilemapTimer.SetTime(121f);
             tilemapTimer.StopTimer();
         }
-
-        // --- Reset and unmute all audio sources ---
-        ResetAllAudioSources();
-
-        if (GlobalVariables.Instance != null && GlobalVariables.Instance.levelStart)
-        {
-            SceneStart();
-        }
-        else
-        {
-            SkipIntro();
-        }
     }
 
     private void SkipIntro()
@@ -73,10 +77,13 @@ public class LevelStartManager : MonoBehaviour
         if (fadeImage != null)
             fadeImage.color = new Color(fadeImage.color.r, fadeImage.color.g, fadeImage.color.b, 0f);
 
-        ResetAllAudioSources();
-
-        if (startPlayAudio != null && !startPlayAudio.isPlaying)
-            startPlayAudio.Play();
+        // Immediately unmute and play the main music
+        if (startPlayAudio != null)
+        {
+            startPlayAudio.mute = false;
+            if (!startPlayAudio.isPlaying)
+                startPlayAudio.Play();
+        }
     }
 
     public void SceneStart()
@@ -89,17 +96,18 @@ public class LevelStartManager : MonoBehaviour
 
     private IEnumerator LevelStartSequence()
     {
-        // Freeze gameplay briefly
+        // Freeze briefly
         yield return new WaitForSeconds(freezeDelay);
         Time.timeScale = 0f;
 
-        // Countdown: 3, 2, 1, GO!
+        // Countdown 3..2..1..GO!
         string[] countdown = { "3", "2", "1", "GO!" };
         for (int i = 0; i < countdown.Length; i++)
         {
             if (countdownText != null)
                 countdownText.text = countdown[i];
 
+            // --- Play countdown sound effects (not muted) ---
             if (sfxSource != null)
             {
                 if (i < countdown.Length - 1 && countdownBeep != null)
@@ -134,34 +142,25 @@ public class LevelStartManager : MonoBehaviour
         if (startUIRoot != null)
             startUIRoot.SetActive(false);
 
+        // Resume time
         Time.timeScale = 1f;
 
-        // Start audio
+        // ✅ Unmute and play background music now
         if (startPlayAudio != null)
-            startPlayAudio.Play();
-
-        ResetAllAudioSources();
+        {
+            startPlayAudio.mute = false;
+            if (!startPlayAudio.isPlaying)
+                startPlayAudio.Play();
+        }
 
         // Start whichever timer exists
         if (timerManager != null)
             timerManager.StartTimer();
-
         if (tilemapTimer != null)
             tilemapTimer.StartCountdown();
 
         // Disable levelStart flag
         if (GlobalVariables.Instance != null)
             GlobalVariables.Instance.levelStart = false;
-    }
-
-    private void ResetAllAudioSources()
-    {
-        AudioSource[] allSources = FindObjectsOfType<AudioSource>();
-        foreach (AudioSource source in allSources)
-        {
-            source.Stop();
-            source.mute = false;
-            source.volume = 1f;
-        }
     }
 }
