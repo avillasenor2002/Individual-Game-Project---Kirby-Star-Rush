@@ -17,7 +17,8 @@ public class LevelStartManager : MonoBehaviour
     [SerializeField] private AudioSource startPlayAudio; // AudioSource to start after countdown
 
     [Header("Timer")]
-    [SerializeField] private TimerManager timerManager; // Reference to TimerManager
+    [SerializeField] private TimerManager timerManager; // Regular timer
+    [SerializeField] private TilemapTimer tilemapTimer; // Tilemap-based timer
 
     [Header("Timing")]
     [SerializeField] private float freezeDelay = 0.2f;
@@ -26,13 +27,33 @@ public class LevelStartManager : MonoBehaviour
 
     private void Start()
     {
-        // Find TimerManager automatically if not assigned
+        // Auto-find both timer types if missing
         if (timerManager == null)
-        {
             timerManager = FindObjectOfType<TimerManager>();
-            if (timerManager == null)
-                Debug.LogWarning("No TimerManager found in the scene.");
+
+        if (tilemapTimer == null)
+            tilemapTimer = FindObjectOfType<TilemapTimer>();
+
+        // --- Reset timers ---
+        if (timerManager != null)
+        {
+            timerManager.StopAllCoroutines(); // stop previous timers
+            typeof(TimerManager)
+                .GetField("elapsedTime", System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance)
+                ?.SetValue(timerManager, 0f);
+            typeof(TimerManager)
+                .GetField("currentTimeFormatted", System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance)
+                ?.SetValue(timerManager, "00:00");
         }
+
+        if (tilemapTimer != null)
+        {
+            tilemapTimer.SetTime(121f);
+            tilemapTimer.StopTimer();
+        }
+
+        // --- Reset and unmute all audio sources ---
+        ResetAllAudioSources();
 
         if (GlobalVariables.Instance != null && GlobalVariables.Instance.levelStart)
         {
@@ -52,7 +73,7 @@ public class LevelStartManager : MonoBehaviour
         if (fadeImage != null)
             fadeImage.color = new Color(fadeImage.color.r, fadeImage.color.g, fadeImage.color.b, 0f);
 
-        UnmuteAllAudio();
+        ResetAllAudioSources();
 
         if (startPlayAudio != null && !startPlayAudio.isPlaying)
             startPlayAudio.Play();
@@ -92,7 +113,7 @@ public class LevelStartManager : MonoBehaviour
 
         yield return new WaitForSecondsRealtime(fadeOutDelay);
 
-        // Fade out the UI image
+        // Fade out UI
         if (fadeImage != null)
         {
             Color startColor = fadeImage.color;
@@ -115,29 +136,30 @@ public class LevelStartManager : MonoBehaviour
 
         Time.timeScale = 1f;
 
-        // Start level audio if assigned
+        // Start audio
         if (startPlayAudio != null)
             startPlayAudio.Play();
 
-        // Unmute all audio sources in the scene
-        UnmuteAllAudio();
+        ResetAllAudioSources();
 
-        // Start the timer
+        // Start whichever timer exists
         if (timerManager != null)
-        {
             timerManager.StartTimer();
-        }
 
-        // Set levelStart to false after countdown
+        if (tilemapTimer != null)
+            tilemapTimer.StartCountdown();
+
+        // Disable levelStart flag
         if (GlobalVariables.Instance != null)
             GlobalVariables.Instance.levelStart = false;
     }
 
-    private void UnmuteAllAudio()
+    private void ResetAllAudioSources()
     {
         AudioSource[] allSources = FindObjectsOfType<AudioSource>();
         foreach (AudioSource source in allSources)
         {
+            source.Stop();
             source.mute = false;
             source.volume = 1f;
         }
